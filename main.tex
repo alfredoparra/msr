@@ -1,0 +1,668 @@
+%Mehrmals pdfLatex und vor allen Dingen auch BibTeX, i.e. Biber ausführen dann funktioniert es.
+\documentclass{book}
+
+%The Journal of Value Inquiry
+
+%\usepackage[headsep=.25in,left=3cm,right=3cm,top=3cm,
+ %               bottom=3cm%,textheight=9in
+ %               ]
+ %               {geometry}
+
+\pdfoutput=1
+\usepackage{amssymb}	% Allows use of AMS's mathematical symbols
+\usepackage{latexsym}	% Allows use of old latex symbols
+\usepackage{amsmath}
+
+\usepackage{microtype}  % Kann einige Badnesses eliminieren
+
+\usepackage{hyperref}   % Auskommentieren, um Referenzen etc. anklickbar zu machen.
+
+
+\usepackage{array}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+%FROM: http://tex.stackexchange.com/questions/159257/increase-latex-table-row-height
+
+\usepackage[backend=biber,natbib=true,style=authoryear-comp,citestyle=authoryear]{biblatex}
+%natbib=true,style=authortitle-icomp,style=authoryear
+%\usepackage{cite}
+%\usepackage[authoryear]{natbib}
+%authortitle-icomp
+
+%Keine Adressen aus der .bib in die References
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite=true]{
+      \step[fieldset=address, null]
+      \step[fieldset=language, null]
+    }
+  }
+}
+
+%% For old versions of latex, replace the above three lines by
+%\documentstyle[amssymbols]{article}
+
+\usepackage[utf8]{inputenc} %Auch utf8 kann eine gute Idee sein
+\usepackage{csquotes}
+\usepackage[english]{babel}
+
+\usepackage{graphicx}
+
+\usepackage{colonequals}
+\newcommand*{\logeq}{\ratio\Leftrightarrow}
+
+\DeclareMathOperator*{\cov}{cov}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{trees}
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt},
+            }
+
+
+\newcommand{\TRUE}{\textsf{T}}
+\newcommand{\FALSE}{\textsf{F}}
+
+%From http://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+
+\DeclareCiteCommand{\citeyear}
+{}
+{\bibhyperref{\setbox0=\hbox{{\printfield{year}\printfield{extrayear}}\unskip}\ifdim\wd0=0pt  n.\@d.\@\else\printfield{year}\printfield{extrayear}\fi}}
+{\multicitedelim}
+{}
+
+\makeatletter
+\renewcommand{\citet}[2][]{\citeauthor{#2} (\citeyear{#2}\ifthenelse{\equal{#1}{}}{}{, #1})}
+\makeatother
+
+
+\DeclareCiteCommand{\citetitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+   \printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+%From http://tex.stackexchange.com/questions/67092/set-table-background-hatched-and-shaded-using-tikz
+
+\usepackage{fourier} 
+%\usepackage[table]{xcolor} 
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usetikzlibrary{calc,shadings,patterns}
+\usepackage{mdframed} % Figure borders
+
+% Andrew Stacey's code from
+% http://tex.stackexchange.com/a/50054/3954
+\makeatletter
+\tikzset{%
+  remember picture with id/.style={%
+    remember picture,
+    overlay,
+    save picture id=#1,
+  },
+  save picture id/.code={%
+    \edef\pgf@temp{#1}%
+    \immediate\write\pgfutil@auxout{%
+      \noexpand\savepointas{\pgf@temp}{\pgfpictureid}}%
+  },
+  if picture id/.code args={#1#2#3}{%
+    \@ifundefined{save@pt@#1}{%
+      \pgfkeysalso{#3}%
+    }{
+      \pgfkeysalso{#2}%
+    }
+  }
+}
+
+\def\savepointas#1#2{%
+  \expandafter\gdef\csname save@pt@#1\endcsname{#2}%
+}
+
+\def\tmk@labeldef#1,#2\@nil{%
+  \def\tmk@label{#1}%
+  \def\tmk@def{#2}%
+}
+
+\tikzdeclarecoordinatesystem{pic}{%
+  \pgfutil@in@,{#1}%
+  \ifpgfutil@in@%
+    \tmk@labeldef#1\@nil
+  \else
+    \tmk@labeldef#1,(0pt,0pt)\@nil
+  \fi
+  \@ifundefined{save@pt@\tmk@label}{%
+    \tikz@scan@one@point\pgfutil@firstofone\tmk@def
+  }{%
+  \pgfsys@getposition{\csname save@pt@\tmk@label\endcsname}\save@orig@pic%
+  \pgfsys@getposition{\pgfpictureid}\save@this@pic%
+  \pgf@process{\pgfpointorigin\save@this@pic}%
+  \pgf@xa=\pgf@x
+  \pgf@ya=\pgf@y
+  \pgf@process{\pgfpointorigin\save@orig@pic}%
+  \advance\pgf@x by -\pgf@xa
+  \advance\pgf@y by -\pgf@ya
+  }%
+}
+\newcommand\tikzmark[2][]{%
+\tikz[remember picture with id=#2] {#1;}}
+\makeatother
+% end of Andrew's code
+
+\newcommand\ShadeCell[4][0pt]{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \shade[#4] ( $ (pic cs:#2) + (0pt,1.9ex) $ ) rectangle ( $ (pic cs:#3) + (0pt,-#1*\baselineskip-.8ex) $ );
+  \end{tikzpicture}%
+}%
+
+\newcommand\HatchedCell[4][0pt]{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \fill[#4] ( $ (pic cs:#2) + (0,1.9ex) $ ) rectangle ( $ (pic cs:#3) + (0pt,-#1*\baselineskip-.8ex) $ );
+  \end{tikzpicture}%
+}%
+
+\newcounter{hatchNumber}
+\setcounter{hatchNumber}{1}
+\newcommand\myHatch[2]{
+    \multicolumn{1}{
+        !{\HatchedCell{startMyHatch\arabic{hatchNumber}}{endMyHatch\arabic{hatchNumber}}{%
+                pattern color=black!70,pattern=north east lines}
+            \tikzmark{startMyHatch\arabic{hatchNumber}}}
+            #1
+        !{\tikzmark{endMyHatch\arabic{hatchNumber}}}}
+        {#2} 
+      \addtocounter{hatchNumber}{1}
+}
+
+\usepackage{array}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\bibliography{references.bib}  % The name of your .bib file.
+
+
+\title{Multiverse-wide Cooperation via Correlated Decision Making}
+\author {Caspar Oesterheld, Foundational Research Institute\\\texttt{caspar.oesterheld@foundational-research.org}}
+\date{\today}
+\renewcommand{\labelitemii}{$\circ$}
+
+\begin{document}
+
+\maketitle    % This command generates the title.
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\chapter{Introduction}
+\label{Introduction}
+\section{The Basic Idea}
+\label{basicidea}
+
+This paper makes an extraordinary claim: that a few interesting, but by themselves inconsequential, ideas from decision theory and physics together give rise to a \href{https://casparoesterheld.files.wordpress.com/2016/11/crucialconsiderations1.pdf}{crucial consideration} with strong implications for how to \href{https://en.wikipedia.org/wiki/Effective_altruism}{do the most good}. In this first section, I will outline the main idea and forward-reference sections with the full arguments and detailed elaborations.
+
+Consider the following thought experiment, adapted from \href{https://www.gwern.net/docs/1985-hofstadter#dilemmas-for-superrational-thinkers-leading-up-to-a-luring-lottery}{\textit{Dilemmas for Superrational Thinkers, Leading Up to a Luring Lottery}} by \href{https://en.wikipedia.org/wiki/Douglas_Hofstadter}{Douglas Hofstadter}:
+
+\begin{quote}
+\hypertarget{donationgame}{\textbf{Donation game with superrationality.}} Hofstadter sends 20 participants the same letter, asking them to respond with a single letter ‘C’ (for cooperate) or ‘D’ (for defect) without communicating with the other participants. Hofstadter explains that by sending in ‘C’, a participant can increase everyone else’s payoff by \$2. By sending in ‘D’, participants can increase their own payoff by \$5. The letter ends by informing the participants that they were chosen for the similarity and rationality of their decision mechanisms, particularly in weird scenarios like this one. It should be noted that every participant only cares about the balance of her own bank account, and not about Hofstadter’s or that of the other 19 participants. Upon receiving the letter, should you cooperate or defect?
+\end{quote}
+
+Assuming the participants’ thought processes are sufficiently similar to each other, we should cooperate because this makes it more likely that our 19 fellow participants also cooperate. After all, Hofstadter stated fairly explicitly that the thought processes of the participants are strongly correlated. Thus, if we cooperate, we should expect significantly more of the other participants to cooperate as well than if we defect, which means that cooperating has higher expected utility. Alternatively, we may reason that by our choice we determine what the rational choice is for all participants. Hofstadter calls this idea --- using cooperation to make agents in symmetric situations cooperate without affecting them causally --- \textit{superrationality}. These arguments are elaborated on in Chapter \ref{Superrationality} with many references to the literature.
+ 
+By itself, superrationality does not seem particularly action-guiding. Usually, we have other evidence about other agents’ behavior and thought processes such that the evidence we gain from our own decisions is less important (see section \ref{Superrational cooperation on Earth}). To apply superrationality in practice, we combine it with another intellectually stimulating but by itself inconsequential hypothesis: we probably live in a vast universe or even multiverse, most of which we cannot observe or interact with (see section \ref{Many agents}). Note that in this paper, we will use the term “multiverse” in a broad sense to refer to any theory postulating multiple universes, including but not limited to Everett’s many-worlds interpretation of quantum mechanics. In fact, for brevity’s sake we will use the term to refer to any theory of physics that implies the existence of a sufficiently large universe with many agents including a merely spatially infinite universe.\footnote{This is consistent with Tegmark's \parencite*{Tegmark2003-sl} terminology but otherwise uncommon.} Some parts of this multiverse are probably inhabited by intelligent beings like us, some of which surely think about scenarios like this one in the same way as we do. This is all we need to allow for the application of superrationality. 
+
+The key insight of this paper is that agents in a large universe are in a situation structurally similar to the aforementioned donation game if they care about each other's decisions in far away parts of the multiverse. Consider the following list of parallels:
+\begin{itemize}
+	\item The decisions between some groups of agents are correlated, just like those in the donation game.
+	\item Some agents have different goals than others --- a claim for which we argue in section \ref{Orthogonality of instrumental rationality and values} --- just like the agents in the donation game maximize the balances of different bank accounts.
+	\item On occasion, agents can “cooperate” by benefitting the value systems of agents in other parts of the multiverse at low costs to themselves.
+	\item As in the donation game, our actions cannot causally influence the behavior of other agents in the multiverse.
+\end{itemize}
+ 
+As an example, imagine you have some specific value system like the reduction of involuntary suffering. You come into a situation in which involuntary suffering has already been reduced to a very low amount. You face a choice between two actions:
+\begin{itemize}
+\item You can continue to reduce suffering and increase your own utility and that of other suffering reducers by 1.\footnote{Quantifying utility in a way that allows for comparison among different agents is difficult. For now, we will assume that it is possible. The question is revisited in section \ref{Compromise strategy}.}
+\item You can increase the utility of superrational agents in other parts of the multiverse who (also) care about things other than suffering reduction by 100, e.g. by generating a society of agents, who live happily, produce interesting art, conduct science, explore technologies, trade, behave benevolently towards each other, etc.
+\end{itemize}
+By construction of the thought experiment you care about suffering reduction only, so you would usually take the first action. But consider that many agents throughout the multiverse will face very similar decision problems. For example, there might be an agent who primarily cares about agents experiencing art and the interestingness of things and who is facing similarly diminishing returns --- in her world, most things that could be of interest already exist. Other value systems, on the other hand, have been ignored in her process of making her world more interesting. Her world contains many sentient beings with very low levels of well-being, for example, humans experiencing various crises (wars, loneliness, life-threatening dangers) --- a common theme in art --- \href{https://foundational-research.org/the-importance-of-wild-animal-suffering/}{wild animals} (after all, “nature is beautiful”), or \href{https://en.wikipedia.org/wiki/Blood_sport}{blood sports}. She knows that agents in other parts of the multiverse are unhappy about this suffering and that she could alleviate them at low opportunity costs to herself. Her decision problem is thus structurally similar to our own. If her thought process is similar to our own, superrationality applies. If we are nice and follow the heuristic "fulfill the goals of other agents in the multiverse whenever the returns are much higher than the opportunity costs for your own values", then this makes it more likely that she will be nice as well, the benefits of which are much greater than those forgone by our own friendliness.
+ 
+In general, if after thinking about superrationality we are nice to other value systems and relinquish opportunities to exploit them, this makes it more likely that other superrational agents with different value systems out there, or at least those who think in ways similar to our own, do the same. And if everyone is friendly in this way, we can expect to harvest \href{https://foundational-research.org/gains-from-trade-through-compromise/}{gains from compromise} --- everyone will be better off. I will refer to this idea as \textit{multiverse-wide superrationality}, or MSR for short.
+
+\section{An Overview of the Book}
+\label{Overview}
+
+Having read the above introduction, the reader is familiar with the basic idea of MSR. However, it opens up many further questions, some of which I attempt to answer in the present paper. Specifically, the rest of this paper makes the following contributions:
+
+\begin{itemize}
+	\item We investigate the mechanism of superrationality (section \ref{Superrationality}).
+	\begin{itemize}
+		\item After elaborating on the argument for superrationality, we survey the decision theory literature pertaining to superrational cooperation (sections \ref{Lack of knowledge is evidential power, part I: the other agents} through \ref{Mathematical rigor and idiosyncrasy}). Among other things, we argue in favor of incorporating \enquote{updatelessness} into one’s decision mechanism.
+		\item Exactly how much should we cooperate? Considering superrationality, how should we decide between actions in this universe to maximize our multiverse-wide utility? I will argue that it is best to effectively adopt a new utility utility function in this universe: a weighted sum of all superrationalists’ utility functions that, if adopted by all superrationalists, gives every superrationalists the same gains from compromise. This function should be the same for all agents with your decision algorithm (sections \ref{Are the correlations strong enough?} through \ref{Compromise strategy}).
+    	\item We see how superrational cooperation fundamentally differs from standard causal cooperation (section \ref{No reciprocity needed: whom to treat beneficially} and \ref{Cheating, signaling, and half-heartedness}). We will see how, intriguingly, it requires no reciprocity --- we should benefit superrationalists who cannot benefit us, because we may correlate with agents who can benefit us but whom we cannot benefit. % TODO: check if Caspar accepts edits to this part in the original doc
+	\end{itemize}
+	\item Cooperating superrationally with agents elsewhere in the multiverse means taking their values into account. Section \ref{Values} explores what these values might be and the ways in which they are relevant to us.
+    \begin{itemize}
+    	\item I argue that (with regard to the decision to cooperate or not) we correlate with agents who hold values that differ from ours (section \ref{Orthogonality of instrumental rationality and values}). If this was not the case, cooperating with them would be unnecessary except when it comes to coordination (see section \ref{Notes on superrational coordination}).
+		\item I provide a comprehensive list of prerequisites that must be fulfilled for multiverse-wide superrational cooperation to work (section \ref{Necessary preconditions}). For example, we cannot benefit agents who do not care about our part of the multiverse (section \ref{Caring about the multiverse}).
+        \item Which aspects of other agents’ preferences should be taken into account? E.g., should it only be “moral preferences”? To which extent should we idealize their preferences, e.g. by trying to factor out cognitive biases? We motivate and answer these questions in section \ref{What values?}.
+        \item We review different approaches to hypothesizing about the values of other agents in the multiverse (section \ref{The values of our superrational collaborators in the multiverse}), the most important ones being evolutionary psychology and the study of cultural evolution.
+    \end{itemize}
+    \item How does multiverse-wide superrational cooperation shift our priorities? What does it recommend in practice? These questions are discussed in section \ref{Interventions}. We first show how to make policy decisions in the absence of reliable knowledge about the values of agents elsewhere in the multiverse (section \ref{Cooperation in the face of uncertainty about values in the multiverse}). I then recommend a few interventions, such as promoting causal cooperation (section \ref{Promoting causal cooperation}”) and, perhaps most importantly, ensuring that future superintelligent AIs reason correctly about decision theory (section \ref{Making an AI come up with superrational cooperation on its own}).
+    \item The appendix contains various additional considerations that are either less crucial for our decisions or otherwise more tangential, yet nonetheless relevant and of interest to at least some readers. For example, I give an overview of the small amount of work that is closely related to MSR (section \ref{Related work}) and explain why I find it plausible that we live in a universe or multiverse containing many agents with whom we are correlated (section \ref{Many agents}). I also argue that superrationality has few implications for the interactions between agents on Earth (section \ref{Superrational cooperation on Earth}), and hence why this paper specifically concerns the application of superrationality in a multiverse-wide (as opposed to general) setting.
+\end{itemize}
+Much more research is needed to answer some of the questions I set out to explore. This is why I focus more on outlining \textit{how} these questions can be researched in the future,\footnote{If you want to contribute to or be kept up-to-date on future research and discussion, consider joining the \href{https://groups.google.com/forum/\#!forum/multiverse-superrationality}{MSR mailing list}.} rather than on trying to ascertain that all our answers are correct with high confidence.
+
+
+%\begin{quote}
+
+%\end{quote}
+
+\chapter{Superrationality} %%%%% CHAPTER 1 
+\label{Superrationality}
+
+Despite what the name might suggest, \textit{superrationality} does not have anything to do with extraordinary levels of rationality. “Super” refers to \textit{inclusivity}, as in \textit{superorganism}, and “rationality” specifically denotes \textit{instrumental rationality}. The term was introduced by Hofstadter \parencite*{Hofstadter1983-az}, although the basic argument had been discussed before \parencite{Davis1977-iw}. In the following we give an abbreviated and simplified account of the prisoner’s dilemma or public goods game-like experiment Hofstadter ran with some of his friends and colleagues as participants. It is the same thought experiment we discussed in the introduction, although we now distinguish two slightly different versions. The argumentation for superrationality will be relatively brief. For more detailed accounts, see Hofstadter’s original article or some of the references in section \ref{A short survey of decision theories and their relation to superrationality}.
+
+\begin{quote}
+\hypertarget{donationgamecommonrationality}{\textbf{Donation game with common rationality.}} (This is more similar to the version Hofstadter uses in his article.) Hofstadter sends 20 participants the same letter, asking them to respond with a single letter ‘C’ (for cooperate) or ‘D’ (for defect) without communicating with each other. Hofstadter explains that by sending in ‘C’, a participant can increase everyone else’s payoff by \$2. By sending in ‘D’, participants can increase their own payoff by \$5. The letter ends by informing the participants that they were all chosen for their high levels of rationality and correct decision making in weird scenarios like this. Note that every participant only cares about the balance of her own bank account and not about Hofstadter’s or the other 19 participants’. Should you, as a participant, respond with ‘C’ or ‘D’?
+\end{quote}
+\begin{quote}
+\hypertarget{donationgamesimilarity}{\textbf{Donation game with similarity.}} The same as the donation game with common rationality. However, instead of informing the participants of their common rationality, the game master informs them that they think in similar ways about weird decision problems like this one.
+\end{quote}
+
+The basic setup of this thought experiment is equivalent to those found in, e.g., the prisoner’s dilemma with copies/replicas/twins \parencite{Kuhn2017-tl}. All of these games share an important feature: they are not iterated. Participants respond only once, then find out what the others chose --- and the game is over.
+
+The optimal outcome is the one where you defect and everyone else cooperates, yielding a payoff of $19\cdot\$2+\$5=\$43$. Conversely, the worst outcome occurs if you cooperate and everyone else defects, yielding a payoff of \$0. In any case, no matter how many participants cooperate, you are always better off defecting; ‘D’ is the \textit{dominant strategy}. Standard game-theoretical analysis would therefore suggest that ‘D’ is the correct choice. This is quite unfortunate, because if everyone abides by this reasoning, this yields a payoff of just \$5 --- whereas if everyone could cooperate, you and everyone else could earn $19\cdot\$2=\$38$. Is there any way around this tragedy of the commons?
+ 
+If we only consider the causal implications of an action, the analysis is indeed accurate. However, it ignores that there is also a correlation between the decisions of the participants. Consider a variation of the above thought experiment, in which you know that the other 19 participants are all exact copies of you, deciding under the exact same environmental circumstances as yourself. You still have no causal influence over the others’ decisions and ‘D’ is still the dominant strategy; no matter what the other copies choose, ‘D’ is the better option. However, this argument seems much less attractive now. No matter what you choose, your copies are guaranteed to make the same choice (assuming that they make decisions deterministically). There is no possible (deterministic) world in which two copies decide differently in the exact same situation. Thus, your decision whether to cooperate is one between two worlds: in one of them, the algorithm implemented by your brain returns ‘C’; in the other, it returns ‘D’. Determining the choice of all your copies to be ‘C’ gives you more utility, and should thus be regarded as the (instrumentally) rational choice.
+ 
+Of course, strong correlation is not limited to atom-by-atom copies. Imagine a variation of the donation game in which you play against near copies who differ from you in insignificant ways. One may have forgotten some particular childhood memory; another may be more skilled at playing basketball; and so forth. Similarly, the environments in which the near copies decide may differ inconsequentially. For instance, one participant may receive the letter in the font “Times New Roman” and another in “Arial". In a donation game with such negligible variations, it seems clear that ‘C’ is still the better option. Although we cannot be absolutely certain that all 20 of the near-copies make the same choice, it is very likely that they will. With growing dissimilarities between two agents and their environments, the correlation between them decreases further, but your own decision still gives you information about the other agents’ decisions. As long as the accumulating differences do not affect any of the agents’ reasoning, the correlation will remain a strong one.
+ 
+While the participants of the two donation games are not copies of each other, both variants make clear that the participants’ decision-making mechanisms resemble one another and are thus correlated. The donation game with similarity is very explicit about this similarity. The donation game with common rationality, on the other hand, is more subtle --- it tells the participants that their decision mechanisms are all “rational”. Of course, the individual participant does not know what the rational choice is, yet, but she knows that, if she makes her decision by abstract reasoning (rather than a whim) the result will be the rational decision. She also knows the other participants are also rational (in the same sense of the word) and will therefore arrive at the same --- the rational --- decision. (It seems unlikely that ‘C’ and ‘D’ are exactly equally rational.) In essence, this argument from common rationality is one from (perfect) correlation: if we are rational, we determine what the rational decision is and thus what other rational agents will do. This mechanism is what Hofstadter calls \textit{superrationality}: if everyone knows that everyone is rational and has the same information, then everyone can determine everyone else’s decision.
+
+Anticipating objections, Hofstadter \parencite*{Hofstadter1983-az} writes:
+\begin{quote}
+This solution depends in no way on telepathy or bizarre forms of causality. It’s just that the statement "I’ll choose C and then everyone will", though entirely correct, is somewhat misleadingly phrased. It involves the word "choice", which is incompatible with the compelling quality of logic. Schoolchildren do not choose what 507 divided by 13 is; they figure it out. Analogously, my letter really did not allow choice; it demanded reasoning. Thus, a better way to phrase the "voodoo" statement would be this: "If reasoning guides me to say C, then, as I am no different from anyone else as far as rational thinking is concerned, it will guide everyone to say C." [...] Likewise, the argument "Whatever I do, so will everyone else do" is simply a statement of faith that reasoning is universal, at least among rational thinkers [or those who receive the letter], not an endorsement of any mystical kind of causality.
+\end{quote}
+ 
+I do not think that, in practice, similarity between decision algorithms will often be as strong as assumed in the above thought experiments. Even if I received a letter of the above kind, I would not think of my decision as determining the others’ decisions with near certainty (although I would cooperate under certain circumstances). In fact, the very reason I make the superrationality argument about the multiverse in particular is that the conditions for superrationality are usually not fulfilled on Earth (see section \ref{Superrational cooperation on Earth}). Nonetheless, it is useful to assume perfect and near-perfect correlations in thought experiments for illustration purposes.
+ 
+Throughout this paper, I will tend to make arguments from similarity of decision algorithms rather than from “logically determining” the rational choice, because I hold these to be more rigorous whenever there is not authority to tell my collaborators and me about our shared rationality. In any case, the argument from correlation is sufficiently general to include reasoning based on shared rationality as a type of perfect correlation. Because the underlying mechanisms are similar, we use the term superrationality for both similarity and “shared rationality”-based lines of reasoning. We will also call an agent “superrational” if her decision correlates with those of other superrational agents, sweeping the complications of thinking about individual correlations under the rug.  Furthermore, we shall use the term “donation game with superrationality” for donation games with similarity or common knowledge of each other’s rationality. %% TODO: second-to-last sentence is a bit shady.
+ 
+The rest of this section explores various theoretical considerations related to those mechanisms of superrationality that have practical implications for multiverse-wide superrationality. Most of them are not specific to the multiverse-wide application, however, and we will often illustrate them in more readily imaginable settings in a single universe.
+
+
+\section{Lack of knowledge is evidential power, part I: the other agents}
+\label{Lack of knowledge is evidential power, part I: the other agents}
+
+One reason why some people would not cooperate in the Donation game (or the Prisoner’s dilemma) is, I think, that they have knowledge that would break the correlation between the participants. Using their model of human psychology, they can quickly make an informed guess about what the others are likely to think about and thus decide. Put simply, you learn less from your own cooperation once you already know what the others are deciding.
+ 
+Consider the following variation of the Donation game:
+
+\begin{quote}
+\hypertarget{deviouspostalworker}{\textbf{The Devious postal worker.}} Game master Hofstadter (in this thought experiment a fictional character) has contrived another donation game. This time, you and the other participants know that you all live in the same area and are to reply by post. Having learned your lesson from Hofstadter’s article in Scientific American, you write a big ‘C’ onto a postcard and walk to the post office. The postal worker takes your card, reads the address and says: “You’re participating in one of Prof. Hofstadter’s games , aren’t you? And you seem to have decided to cooperate. How very noble and decision-theoretically sound of you! Well, I’ll let you in on a little secret. Hofstadter has been playing his games with people in this area for years now. We used to merely distribute the letters for him, look at people’s answers and then send them back to Hofstadter, but after a year or two, we started to bet on people’s replies. The participants tend to use small cards rather than envelopes to save money, so it was easy to spot their replies and count the number of C’s and D’s among them. We eventually became almost perfect at predicting people’s responses, including those from first-timers like yourself who don’t necessarily correlate with past participants. But merely betting on responses got boring after a while, so we started to play a new game: we would tell all participants about our predictions of what the others would choose, giving each one a chance to reconsider their own choice. Although this obviously affected the players’ behavior and forced us to readjust our methods, our predictions are now practically flawless once again. To cut a long story short, we’re highly confident that 18 of your 19 fellow players will defect and only one will cooperate.” The postal worker gives you back your postcard and a pen. Should you still cooperate or revise your decision?
+\end{quote}
+
+If we assume that the postal worker’s prediction gives you far more reliable evidence than your own action, then the superrationality argument presented above no longer works. Once we already have reliable information about what the other participants are likely to choose (or what they have already chosen), our own choice can no longer make cooperation significantly more likely. In terms of evidential decision theory (introduced in the next section), if
+\begin{itemize}
+\item[\textperiodcentered] E[number of other cooperators \textbar\ I cooperate \& postal worker says "n others defect"]
+\item[\textperiodcentered] $\approx$ E[number of other cooperators \textbar\ I defect \& postal worker says "n others defect"],
+\end{itemize}
+where E denotes conditional expectation, then the evidential role of our decision provides no reason to cooperate. That said, in section “Lack of knowledge is evidential power, part II: Taking a step back” we will see that this issue is actually a bit more complicated.
+
+After having sent in your postcard of defection and reflected on what happened, you might realize that all of the other participants were in the same situation as you were. They were also told that 18 (or, in case of the one who cooperated, 19) of the others would defect and, upon hearing this, each concluded that defection would give them a higher payout. No wonder that most players defected. 
+
+Note that even if everyone had been told that all the others had cooperated, it would still be rational for all participants to defect. By merely telling the participants about their predictions, the postal workers make cooperation much less attractive and thereby less common.
+
+What is interesting about the Devious postal worker is that the outcome becomes worse for everyone than in the original Superrational donation games \textit{because} everyone receives information about the other participants’ behavior. While counterfactually useful for each single player, the information is hazardous \parencite{Bostrom2011-zr} overall. As Paul Almond \parencite*[][ch. 4.5]{Almond2010-xn} says, “lack of knowledge is power”, which I would like to refine to: \textit{lack of knowledge is evidential power.}
+
+We shall revisit this concept soon. In particular, we will think about whether there is some way around the unfortunate conclusion that nobody should cooperate after receiving the respective information.
+
+
+\newpage
+
+\section{A short survey of decision theories and their relation to superrationality}
+\label{A short survey of decision theories and their relation to superrationality}
+
+\section{CDT would self-modify to endorse some acausal considerations}
+\label{CDT would self-modify to endorse some acausal considerations}
+
+\section{Lack of knowledge is evidential power, part II: taking a step back} 
+\label{Lack of knowledge is evidential power, part II: taking a step back}
+
+\section{Reasons and correlations}
+\label{Reasons and correlations}
+
+\subsection{Your back is not mine}
+\label{Your back is not mine}
+
+\subsection{Does accepting superrationality commit us to irrational behavior in medical Newcomb problems?}
+\label{Does accepting superrationality commit us to irrational behavior in medical Newcomb problems?}
+
+\subsection{Mathematical rigor and idiosyncrasy}
+\label{Mathematical rigor and idiosyncrasy}
+
+\section{Are the correlations strong enough?}
+\label{Are the correlations strong enough?}
+
+\subsection{Correlation only with close copies?}
+\label{Correlation only with close copies?}
+
+\subsection{Negative correlations?}
+\label{Negative correlations?}
+
+\section{The relative importance of superrational cooperation: an example calculation}
+\label{The relative importance of superrational cooperation: an example calculation}
+
+\subsection{Factoring in uncertainty about the size of the universe}
+\label{Factoring in uncertainty about the size of the universe}
+
+\section{Compromise strategy}
+\label{Compromise strategy}
+
+\subsection{Sharing gains from compromise in the face of asymmetries}
+\label{Sharing gains from compromise in the face of asymmetries}
+
+\subsection{The compromise problem}
+\label{The compromise problem}
+
+\subsection{Cooperation with and without coordination}
+\label{Cooperation with and without coordination}
+
+\subsection{Harsanyi's aggregation theorem}
+\label{Harsanyi's aggregation theorem}
+
+\subsection{How to assign the weights}
+\label{How to assign the weights}
+
+\subsubsection{Biased compromise utility functions?}
+\label{Biased compromise utility functions?}
+
+\subsubsection{Neutral compromise utility functions}
+\label{Neutral compromise utility functions}
+
+\subsection{Updateless weights}
+\label{Updateless weights}
+
+\subsection{Limitations}
+\label{Limitations}
+
+\subsection{Heuristics}
+\label{Heuristics}
+
+\subsection{Notes on superrational coordination}
+\label{Notes on superrational coordination}
+
+\subsubsection{Schelling points}
+\label{Schelling points}
+
+\subsubsection{Coordination is relevant for everyone}
+\label{Coordination is relevant for everyone}
+
+\section{No reciprocity needed: whom to treat beneficially}
+\label{No reciprocity needed: whom to treat beneficially}
+
+\subsection{Schemes of causal cooperation}
+\label{Schemes of causal cooperation}
+
+\subsection{Circular cooperative structures and indirect causal reciprocity}
+\label{Circular cooperative structures and indirect causal reciprocity}
+
+\subsection{Hierarchies and acyclic graphs}
+\label{Hierarchies and acyclic graphs}
+
+\subsection{Only helping superrational cooperators helps you superrationally}
+\label{Only helping superrational cooperators helps you superrationally}
+
+\section{Cheating, signaling, and half-heartedness}
+\label{Cheating, signaling, and half-heartedness}
+
+
+\chapter{Values}
+\label{Values}
+
+\section{Orthogonality of instrumental rationality and values}
+\label{Orthogonality of instrumental rationality and values}
+
+\section{Necessary preconditions}
+\label{Necessary preconditions}
+
+\subsection{Consequentialism}
+\label{Consequentialism}
+
+\subsection{Caring about the multiverse}
+\label{Caring about the multiverse}
+
+\subsection{Knowable values}
+\label{Knowable values}
+
+\subsubsection{Fragility of value}
+\label{Fragility of value}
+
+\subsection{The ability to help others}
+\label{The ability to help others}
+
+\subsection{Zero-sum and "below-zero-sum" tradeoffs on resources}
+\label{Zero-sum and "below-zero-sum" tradeoffs on resources}
+
+\subsubsection{Gains through specialization and comparative advantages}
+\label{Gains through specialization and comparative advantages}
+
+\section{What values?}
+\label{What values?}
+
+\subsection{Idealization}
+\label{Idealization}
+
+\subsubsection{Beware motivated idealization}
+\label{Beware motivated idealization}
+
+\subsection{Values and distance}
+\label{Values and distance}
+
+\subsection{Different kinds of preferences}
+\label{Different kinds of preferences}
+
+\section{The values of our superrational collaborators in the multiverse}
+\label{The values of our superrational collaborators in the multiverse}
+
+\subsection{On the far values of humans and human superrational cooperators}
+\label{On the far values of humans and human superrational cooperators}
+
+\subsubsection{Organizing human values}
+\label{Organizing human values}
+
+\subsubsection{Human far values}
+\label{Human far values}
+
+\subsubsection{The values of human superrational cooperators}
+\label{The values of human superrational cooperators}
+
+\paragraph{Philosophers}
+\label{Philosophers}
+
+\paragraph{Effective altruists}
+\label{Effective altruists}
+
+\paragraph{Considering larger and smaller groups}
+\label{Considering larger and smaller groups}
+
+\subsection{Biological evolution}
+\label{Biological evolution}
+
+\subsection{Cultural evolution}
+\label{Cultural evolution}
+
+\subsubsection{Which moral views correlate with superrationality?}
+\label{Which moral views correlate with superrationality?}
+
+\subsection{Other considerations}
+\label{Other considerations}
+
+
+
+\chapter{Interventions}
+\label{Interventions}
+
+\section{Cooperation in the face of uncertainty about values in the multiverse}
+\label{Cooperation in the face of uncertainty about values in the multiverse}
+
+\subsection{Universalism}
+\label{Universalism}
+
+\section{Moral advocacy}
+\label{Moral advocacy}
+
+\subsection{Universalist values}
+\label{Universalist values}
+
+\subsubsection{Expanding the moral circle}
+\label{Expanding the moral circle}
+
+\subsubsection{Which moral foundations?}
+\label{Which moral foundations?}
+
+\subsection{Concern for benevolence}
+\label{Concern for benevolence}
+
+\subsection{Consequentialism}
+\label{Consequentialism_2}
+
+\subsection{Pluralism}
+\label{Pluralism}
+
+\subsection{Moral progress}
+\label{Moral progress}
+
+\subsection{Multiverse-wide preference utilitarianism}
+\label{Multiverse-wide preference utilitarianism}
+
+\subsection{No multiverse-wide tug-of-war over values}
+\label{No multiverse-wide tug-of-war over values}
+
+\section{Promoting causal cooperation}
+\label{Promoting causal cooperation}
+
+\section{Increasing capabilities}
+\label{Increasing capabilities}
+
+\section{Meta-activities}
+\label{Meta-activities}
+
+\subsection{Research}
+\label{Research}
+
+\section{Artificial intelligence}
+\label{Artificial intelligence}
+
+\subsection{AI safety not based on superrationality-related considerations}
+\label{AI safety not based on superrationality-related considerations}
+
+\subsection{Multiverse-wide superrational cooperation-inspired value-loading}
+\label{Multiverse-wide superrational cooperation-inspired value-loading}
+
+\subsection{Making an AI come up with superrational cooperation on its own}
+\label{Making an AI come up with superrational cooperation on its own}
+
+\subsubsection{Value loading is still necessary}
+\label{Value loading is still necessary}
+
+\subsubsection{Compromise-friendly backup utility functions}
+\label{Compromise-friendly backup utility functions}
+
+
+\chapter{Acknowledgements}
+
+
+\chapter{Appendix}
+\label{Appendix}
+
+\section{Related work}
+\label{Related work}
+
+\subsection{Gary Drescher on superrationality}
+\label{Gary Drescher on superrationality}
+
+\subsection{Acausal trade}
+\label{Acausal trade}
+
+\subsection{Various mentions of multiverse-wide superrationality}
+\label{Various mentions of multiverse-wide superrationality}
+
+\section{Many agents}
+\label{Many agents}
+
+\section{Testability of superrationality}
+\label{Testability of superrationality}
+
+\section{Do people reason superrationally?}
+\label{Do people reason superrationally?}
+
+\section{The evolution of superrationality}
+\label{The evolution of superrationality}
+
+\section{Superrational cooperation on Earth}
+\label{Superrational cooperation on Earth}
+
+\subsection{Fewer agents}
+\label{Fewer agents}
+
+\subsection{Argument from evolution: superrationality did not evolve (strongly)}
+\label{Argument from evolution: superrationality did not evolve (strongly)}
+
+\subsection{Causal cooperation seems more important}
+\label{Causal cooperation seems more important}
+
+\subsection{Hard-wired alternatives}
+\label{Hard-wired alternatives}
+
+\section{Superrationality and morality}
+\label{Superrationality and morality}
+
+\subsection{Real altruism}
+\label{Real altruism}
+
+\subsection{How much altruistic behavior does superrationality entail?}
+\label{How much altruistic behavior does superrationality entail?}
+
+\section{Multiverse-wide superrationality for causal decision theorists}
+\label{Multiverse-wide superrationality for causal decision theorists}
+
+\section{Simulations}
+\label{Simulations}
+
+\subsection{If being in a simulation is bad, avoid producing one}
+\label{If being in a simulation is bad, avoid producing one}
+
+\subsection{Happy simulations}
+\label{Happy simulations}
+
+\section{Infinite ethics}
+\label{Infinite ethics}
+
+\section{Objection based on uncertainty about the values of superrationalists in the multiverse}
+\label{Objection based on uncertainty about the values of superrationalists in the multiverse}
+
+\begin{sloppypar} % Prevents URLs from exceeding page width
+\printbibliography
+\end{sloppypar}
+
+\end{document}
