@@ -253,13 +253,13 @@ what they have already chosen), our own choice can no longer make
 cooperation significantly more likely. In terms of evidential decision
 theory (introduced in the next section), if
 
-$\mathbb{E}${[}number of other cooperators \textbar{} I cooperate \& postal worker
+$\mathrm{E}${[}number of other cooperators \textbar{} I cooperate \& postal worker
 says ``n others defect''{]}
 
-$\approx \mathbb{E}${[}number of other cooperators \textbar{} I defect \& postal worker
+$\approx \mathrm{E}${[}number of other cooperators \textbar{} I defect \& postal worker
 says ``n others defect''{]},
 
-where $\mathbb{E}$ denotes
+where $\mathrm{E}$ denotes
 \href{https://en.wikipedia.org/wiki/Conditional_expectation}{\emph{conditional
 expectation}}, then the evidential role of our decision provides no
 reason to cooperate. That said, in section
@@ -790,10 +790,8 @@ Newcomb problems, philosophers have proposed a variety of decision
 theories that behave in this exact way (Treutlein and Oesterheld,
 unpublished). That is, they cooperate superrationally (and one-box in
 Newcomb's problem) but chew gum in the Chewing gum problem. These
-include Spohn's
-\parencite{Spohn2003-zf,Spohn2005-tm,Spohn2012-fo} variation
-of CDT and \parencite{Yudkowsky2010-ul} timeless decision
-theory.
+include Spohn's variation of CDT~\parencite{Spohn2003-zf,Spohn2005-tm,Spohn2012-fo} and Yudkowsky's
+timeless decision theory~\parencite{Yudkowsky2010-ul}.
 
 \begin{figure}[h!]
     \centering
@@ -1050,11 +1048,8 @@ Choosing option a) makes everyone chose option a) and so only generates
 b). Whenever someone (including ourselves) chooses option b), there is a
 probability of \(\frac{k}{n}\) that we are among the beneficiaries.
 
-Overall, if we and thus everyone else chooses option b), we receive
-
-\(n\frac{k}{n}b_{\text{other}} = kb_{\text{other}}\) utils. Choosing
-option b) is therefore to be preferred if and only if
-
+Overall, if we and thus everyone else chooses option b), we receive \(n\frac{k}{n}b_{\text{other}} =
+kb_{\text{other}}\) utils. Choosing option b) is therefore to be preferred if and only if
 \(kb_{\text{other}} > b_{u}\). (*)
 
 This suggests that our own preferences have no priority over those of
@@ -1175,14 +1170,11 @@ consists of
 \item
   a finite set of players \(P = { p_{1},...,p_{n}}\),
 \item
-  \begin{quote}
   for each player \(p_{i}\), a set of actions \(A_{i}\),
-  \end{quote}
 \item
   for each player \(p_{i}\) a utility function
-  \(u_{i}:A_{1} \times \text{...} \times A_{n} \rightarrow R\), where
-  \(R\) refers to the real numbers. (TODOLaTeX: make sure to use
-  $\mathbb{R}$)
+  \(u_{i}:A_{1} \times \text{...} \times A_{n} \rightarrow \mathbb{R}\), where
+  \(\mathbb{R}\) refers to the real numbers. 
 \end{itemize}
 
 Multiverse-wide superrational compromise is a game where \(P\) is the
@@ -1228,9 +1220,9 @@ game theory}}.
 In principle, the optimal strategy \(\alpha_{i}^{*}\) can be determined
 by applying one's decision theory. For example, if one were to use EDT,
 then the optimal strategy is
-
-\(\text{argma}x_{\alpha_{i}}\ E\lbrack u_{i}(a_{1},...,a_{n})|\alpha_{i}\rbrack\).
-
+$$
+\argmax_{\alpha_{i}}\ \mathrm{E}\lbrack u_{i}(a_{1},...,a_{n})|\alpha_{i}\rbrack.
+$$
 As noted earlier, however, computing or optimizing the expected value
 conditional on one's action directly is not feasible in situations of
 asymmetric payoffs. To find the best action, we will therefore
@@ -1239,7 +1231,7 @@ criterion, similar to how game theory has replaced expected value
 maximization with Nash equilibria and other concepts.
 
 We will therefore try to develop some new \emph{compromise utility
-function} \(u^{*}:A_{1} \times \text{...} \times A_{n} \rightarrow R\),
+function} \(u^{*}:A_{1} \times \text{...} \times A_{n} \rightarrow \mathbb{R}\),
 intended as a new criterion for choosing the optimal strategy. Because
 the compromise utility function depends less on the specifics of the
 problem, it will prove to be easier to reason about what the adoption of
@@ -1248,9 +1240,9 @@ some \(u^{*}\) tells us about what the other agents do. The optimal
 take. At least if our choosing \(u^{*}\) means that everyone else
 chooses the same \(u^{*}\) (which is not necessarily the case), then
 player \(p_{i}\) should implement the \(i\)-th strategy entry of
-
-\(\text{argma}x_{(\alpha_{1},..,\alpha_{n}) \in A_{1} \times \text{...} \times A_{n}}\ E\lbrack u^{*}(\alpha_{1},...,\alpha_{n})\rbrack\).
-
+$$
+\argmax_{(\alpha_{1},..,\alpha_{n}) \in A_{1} \times \text{...} \times A_{n}}\ \mathrm{E}\lbrack u^{*}(\alpha_{1},...,\alpha_{n})\rbrack.
+$$
 Once again, having a compromise \emph{utility function,} as opposed to
 more general compromise \emph{preferences}, implicitly assumes that the
 compromise preferences are also vNM-rational.
@@ -1259,10 +1251,9 @@ compromise preferences are also vNM-rational.
 with and without
 coordination}\label{cooperation-with-and-without-coordination}}
 
-In a way,
-\(\text{argma}x_{(\alpha_{1},..,\alpha_{n}) \in A_{1} \times \text{...} \times A_{n}}\ E\lbrack u^{*}(\alpha_{1},...,\alpha_{n})\rbrack\)is
-the optimal plan on the assumption that everyone will follow it. With
-practical degrees of correlations, however, we cannot assume that
+In a way, \(\argmax_{(\alpha_{1},..,\alpha_{n}) \in A_{1} \times \text{...} \times A_{n}}\
+\mathrm{E}\lbrack u^{*}(\alpha_{1},...,\alpha_{n})\rbrack\) is the optimal plan on the assumption
+that everyone will follow it. With practical degrees of correlations, however, we cannot assume that
 everyone will arrive at the same plan, especially if multiple plans have
 the same compromise utility. In MSR, it is especially unlikely that
 everyone will arrive at the same plan, as superrational collaborators
@@ -1277,9 +1268,10 @@ at a class of utility functions where coordination plays no role.
 
 We say that a utility function \(u_{i}\) \emph{(additively) decomposes
 into local utility functions}
-\({{ u}_{i,j}:A_{j} \rightarrow R}_{j = 1,...,n}\) if
-
-\(u_{i}(a_{1},...,a_{n}) = u_{i,j}(a_{j})\).
+\(\{ u_{i,j}:A_j \rightarrow \mathbb{R}\}_{j = 1,...,n}\) if
+$$
+u_{i}(a_{1},...,a_{n}) = \sum_{j=1}^n u_{i,j}(a_{j}).
+$$
 
 Intuitively speaking, \(u_{i}\) decomposing into local utility functions
 means that any player \(p_{j}\) has a very direct impact on \(p_{i}\)'s
@@ -1292,9 +1284,9 @@ would be a severe limitation: if agents interact with each other
 physically, then, of course, the impact of an action often depends on
 the other players' actions. As examples, consider some of the classic
 games studied in game theory, such as
-\href{https://en.wikipedia.org/wiki/Battle_of_the_sexes_(game_theory)}{\emph{\emph{Bach
-or Stravinsky}}} or
-\href{https://en.wikipedia.org/wiki/Chicken_(game)}{\emph{\emph{Chicken}}}.
+\href{https://en.wikipedia.org/wiki/Battle_of_the_sexes_(game_theory)}{\emph{Bach
+or Stravinsky}} or
+\href{https://en.wikipedia.org/wiki/Chicken_(game)}{\emph{Chicken}}.
 
 In the problem of multiverse-wide compromise, on the other hand, there
 is probably no causal interaction between the actions of agents in
@@ -1332,25 +1324,26 @@ superrational coordination}}.
 theorem}\label{harsanyis-aggregation-theorem}
 
 Although we do not yet know how and to what extent, we know that our
-compromise utility function \(u^{*}\)should incorporate the utility
+compromise utility function \(u^{*}\) should incorporate the utility
 functions \(u_{1},...,u_{n}\) but not be sensitive to anything else. The
 following assumption captures these attitudes:
 
-\textbf{Assumption B.} Let P and Q be probability distributions over
-outcomes\(A_{1} \times \text{...} \times A_{n}\) such that
-\(E_{P}\lbrack u_{i}(a_{1},...,a_{n})\rbrack \geq E_{Q}\lbrack u_{i}(a_{1},...,a_{n})\rbrack\)
-for \(i = 1,...,n\).\footnote{This notation -- viewing the lotteries as
-  probability distributions over action vectors -- is a bit unnatural,
-  and stems from the lack of an intermediate step of world states or
-  histories between action vectors and utilities in our notation. If we
-  extended our notation with such an intermediate step, then the
-  lotteries would be over states of the world rather than action
-  vectors. Although the proofs also work with action vectors, it may
-  help to think of the lotteries as being over histories.} That is, all
-players like P at least as much as Q. Then
-\(E_{P}\lbrack u^{*}(a_{1},...,a_{n})\rbrack \geq E_{Q}\lbrack u^{*}(a_{1},...,a_{n})\rbrack\),
-i.e. the compromise utility function also values \(P\) at least as
-highly as\(Q\).
+\vspace{3mm}
+
+\begin{assumption}
+\label{ass:compromise_util}
+Let P and Q be probability distributions over outcomes \(A_{1} \times
+\text{...} \times A_{n}\) such that \(\mathrm{E}_{P}\lbrack u_{i}(a_{1},...,a_{n})\rbrack \geq
+\mathrm{E}_{Q}\lbrack u_{i}(a_{1},...,a_{n})\rbrack\) for \(i = 1,...,n\).\footnote{This notation --
+    viewing the lotteries as probability distributions over action vectors -- is a bit unnatural,
+    and stems from the lack of an intermediate step of world states or histories between action
+    vectors and utilities in our notation. If we extended our notation with such an intermediate
+    step, then the lotteries would be over states of the world rather than action vectors. Although
+the proofs also work with action vectors, it may help to think of the lotteries as being over
+histories.} That is, all players like P at least as much as Q. Then \(\mathrm{E}_{P}\lbrack
+u^{*}(a_{1},...,a_{n})\rbrack \geq \mathrm{E}_{Q}\lbrack u^{*}(a_{1},...,a_{n})\rbrack\), i.e. the
+compromise utility function also values \(P\) at least as highly as \(Q\).
+\end{assumption}
 
 We could view this assumption as a decision to limit ourselves to a
 particular class of compromise utility functions -- a decision that
@@ -1366,28 +1359,27 @@ utility functions \(u\) and \(v\) are equivalent, written as
 \href{https://en.wikipedia.org/wiki/Cardinal_utility}{\emph{cardinal
 utility functions}} discussed here, this is the case if one arises from
 positive affine transformation of the other, i.e. if \(u = av + b\) for
-some \(a \in R_{> 0}\) and \(b \in R\).
+some \(a \in \mathbb{R}_{> 0}\) and \(b \in \mathbb{R}\).
 
-Assumption B does not seem especially strong, but it turns out that it
-suffices for a significant result regarding the shape of the compromise
-utility function. It is essentially a version of
-\parencite{Harsanyi1955-ou} aggregation theorem
-\parencite{Peterson2017-pa}.\footnote{Interestingly, the
-  proof of the aggregation theorem given by
-  \parencite{Harsanyi1955-ou} contains an error. However,
-  since then a few alternative, correct proofs have been published
-  \parencite{Fishburn1984-zh,Border1985-mw,Hammond_undated-bp}.}
+Assumption~\ref{ass:compromise_util} does not seem especially strong, but it turns out that it
+suffices for a significant result regarding the shape of the compromise utility function. It is
+essentially a version of Harsanyi's aggregation theorem (\cite{Harsanyi1955-ou}; see also
+\cite{Peterson2017-pa}, section 13.4 for an introduction).\footnote{Interestingly, the proof of the
+    aggregation theorem given in \parencite{Harsanyi1955-ou} contains an error. However, since then
+    a few alternative, correct proofs have been published
+    \parencite{Fishburn1984-zh,Border1985-mw,Hammond_undated-bp}.}
 
-\textbf{Theorem 1.}
+\begin{theorem}
 \parencite{Resnik1983-hl,Fishburn1984-zh} Let \(u^{*}\) be
 a compromise utility function for \(u_{1},...,u_{n}\) that satisfies
 Assumption B. Then there are weights
 \(\lambda_{1},...,\lambda_{n} \in R_{\geq 0}\) such that
-
-\(u^{*} \sim \lambda_{i}u_{i}\). (**)
+\(u^{*} \sim \sum_{i=1}^n\lambda_{i}u_{i}\). (**)
+    \label{th:compromise}
+\end{theorem}
 
 Note that the \(\lambda_{i}\) are not unique. Also, not all weight
-assignments consistent with (**) or Assumption B have only positive
+assignments consistent with (**) or Assumption~\ref{ass:compromise_util} have only positive
 weights. In particular, if \(u_{i} = u_{j}\) for some \(i \neq j\), we
 can decrease \(\lambda_{i}\) by an arbitrary constant \(C\) if we
 correspondingly increase \(\lambda_{j}\) by \(C\), and end up with the
@@ -1396,22 +1388,33 @@ same utility function
 \(C > \lambda_{i}\), we arrive at an equivalent utility function that
 assigns negative weights.
 
-\textbf{Theorem 2.} Let \(u_{1},...,u_{n}\) each decompose into local
-utility functions \({{ u}_{i,j}:A_{j} \rightarrow R}_{j = 1,...,n}\).
-Then a compromise utility function \(u^{*}\) that satisfies assumption B
-relative to \(u_{1},...,u_{n}\) also decomposes into local utility
-functions.
 
-\textbf{Proof.} Because of Theorem 1, it is
+\begin{theorem}
+Let \(u_{1},...,u_{n}\) each decompose into local utility functions \(\{{ u}_{i,j}:A_{j} \rightarrow
+\mathbb{R}\}_{j = 1,...,n}\).  Then a compromise utility function \(u^{*}\) that satisfies
+Assumption~\ref{ass:compromise_util} relative to \(u_{1},...,u_{n}\) also decomposes into local
+utility functions.
+    \label{th:decompose}
+\end{theorem}
 
-\(u^{*}(a_{1},...,a_{n}) = b + \lambda_{i}u_{i}(a_{1},...,a_{n}) = b + \lambda_{i}u_{i,j}(a_{j}) = b + \lambda_{i}u_{i,j}(a_{j}) = (\frac{b}{n} + \lambda_{i}u_{i,j}(a_{j}))\)
-
-for some \(b\) and weights
-\(\lambda_{1},...,\lambda_{n} \in R_{\geq 0}\).
-
-Thus, \(u^{*}\) decomposes into local utility functions
-\({ u_{j}^{*}:A_{j} \rightarrow R{:a_{j} \rightarrow \frac{b}{n} + \lambda_{i}u_{i,j}(a_{j})}}_{j = 1,...,n}\).
-
+\begin{proof}
+Because of Theorem \ref{th:compromise}, it is 
+\begin{equation*}
+    \begin{split}
+        u^{*}(a_{1},...,a_{n}) &= b + \sum_{i=1}^n\lambda_{i}u_{i}(a_{1},...,a_{n}) \\
+                               &= b + \sum_{i=1}^n\lambda_{i}\sum_{j=1}^nu_{i,j}(a_{j}) \\
+                               &= b + \sum_{i=1}^n\sum_{j=1}^n\lambda_{i}u_{i,j}(a_{j}) \\
+                               &= \sum_{j=1}^n\left(\frac{b}{n} +
+                               \sum_{i=1}^n\lambda_{i}u_{i,j}(a_{j})\right)\\
+    \end{split}
+\end{equation*}
+for some \(b\) and weights \(\lambda_{1},...,\lambda_{n}
+\in \mathbb{R}_{\geq 0}\). Thus, \(u^{*}\) decomposes into local utility functions
+$$
+\{ u_{j}^{*}:A_{j} \rightarrow \mathbb{R}{:a_{j} \rightarrow \frac{b}{n} +
+\lambda_{i}u_{i,j}(a_{j})}\}_{j = 1,...,n}.
+$$
+\end{proof}
 This is quite a convenient result. If indeed \(u_{1},...,u_{n}\) each
 decompose into local utility functions, then each player \(p_{i}\) can
 maximize \(u_{i}^{*}\) in her own part of the multiverse without having
@@ -1423,7 +1426,7 @@ weights}\label{how-to-assign-the-weights}}
 
 Having argued that we should make our decisions based on a weighted sum
 of the decisions of our superrational collaborators, the question is how
-we should optimally assign the weights. Theorem 1 does not tell us much
+we should optimally assign the weights. Theorem~\ref{th:compromise} does not tell us much
 about this. In fact, it even allows for the possibility of assigning
 positive weight only to our own utility function. We will differentiate
 two ways of assigning the weights: biased toward our own values, or
@@ -1500,10 +1503,10 @@ We have argued that after an optimal compromise, each player should
 judge their action roughly by the same impartial criteria. Hence, we now
 have to look for a way of assigning the weights in a neutral way.
 
-\parencite{Harsanyi1979-ac} himself proposes -- albeit in
+Harsanyi himself proposes -- albeit in
 the context of social welfare rather than trade -- to simply give equal
 weight to all utility functions, which is equivalent to removing the
-weights altogether. Besides the argument of ``equal treatment'', it can
+weights altogether~\parencite{Harsanyi1979-ac}. Besides the argument of ``equal treatment'', it can
 be backed by an
 \href{https://en.wikipedia.org/wiki/Original_position}{\emph{original
 position}} argument
@@ -1543,7 +1546,7 @@ strawberry and vanilla cake. For example, the third player has a 1:1
 trade ratio, the second has a 4:1 trade ratio. To simplify notation, let
 \(s_{i}\) and \(v_{i}\) be amounts of strawberry and vanilla that
 \(p_{i}\) receives under some action profile. Then the second player's
-utility function could be \(u_{2}(s_{2},v_{2}) = 4s_{2} + v_{2}\)and the
+utility function could be \(u_{2}(s_{2},v_{2}) = 4s_{2} + v_{2}\) and the
 third player's utility function could be written as
 \(u_{3}(s_{3},v_{3}) = s_{3} + v_{3}\). If one wanted to maximize
 aggregate utility \(u_{2} + u_{3}\), then \(u_{2}\) would effectively
@@ -1570,7 +1573,7 @@ is, the utility functions are chosen in such a way that their maximum is
   and supremum}} must be set to 0 and 1. If the utility functions assume
   arbitrarily high values, range normalization is not possible. That is,
   for an unbounded utility function \emph{u} there is no bounded utility
-  function \emph{u'} that is equivalent to \emph{u}.} \footnote{For
+  function \emph{u'} that is equivalent to \emph{u}.}~\footnote{For
   ethical comparisons, the lowest and highest values usually depend on
   an agent's moral relevance, or some measure of the intensity of
   preference (un)fulfillment she can experience. Alternatively, the
@@ -1633,7 +1636,7 @@ and acyclic graphs}}). Thus, without some other justification, range
 normalization does not appear especially promising.
 
 Many other approaches to interpersonal comparisons (see, e.g.,
-\parencite{Sen2014-ns}\footnote{Another approach, which I
+\cite{Sen2014-ns}\footnote{Another approach, which I
   have brought up in previous work
   \parencite{Oesterheld2016-pq}, is to use any utility
   function extraction procedure that is not explicitly biased in any way
@@ -1650,27 +1653,30 @@ require that the compromise is, in expectation, equally good for
 everyone -- that is, everyone gets the same gains from compromise. This
 ensures that the compromise is equally attractive to everyone involved.
 
-\textbf{Assumption C.} The expected gains from adopting \(u^{*}\) are
-the same for each player \(p_{i}\).
+\begin{assumption}
+\label{ass:gains}
+The expected gains from adopting \(u^{*}\) are the same for each player \(p_{i}\).
+\end{assumption}
 
-Unfortunately, Assumption C is underspecified. The most naive view is
-that the gains from compromise for player \(p_{i}\) are
-
-\(E\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|u^{*}\rbrack - E\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|no\ compromise\rbrack\).
-(*)
+Unfortunately, Assumption \ref{ass:gains} is underspecified. The most naive view is that the gains
+from compromise for player \(p_{i}\) are
+$$
+\mathrm{E}\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|u^{*}\rbrack - \mathrm{E}\lbrack
+u_{i}(\alpha_{1},...,\alpha_{n})|\text{no compromise}\rbrack. (*)
+$$
 
 However, there are some aspects of (*) that should, perhaps, be revised.
 For one, it is unclear whether having a full compromise versus having no
 compromise is the appropriate counterfactual. One alternative is to
 choose the counterfactuals provided by one's decision theory. That is,
 one could compare
-\(E\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|I\ cooperate\ with\ u^{*}\rbrack\)
-with \(E\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|I\ defect\rbrack\),
+\(\mathrm{E}\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|\text{I cooperate with }u^{*}\rbrack\)
+with \(\mathrm{E}\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|\text{I defect}\rbrack\),
 where EDT's conditional expectation may be replaced by an alternative
 notion of the counterfactual
 \parencite{Gibbard1978-nw,Hintze2014-ha}. Alas, these are
 difficult to calculate. Perhaps one could also measure the gains from
-each \(p_{\text{i\ }}\)'s individual participation, so that the set of
+each \(p_i\)'s individual participation, so that the set of
 cooperators in the minuend and subtrahend of (*) would be the same,
 except that the latter does not contain \(p_{i}\). Moreover, the
 subtrahend's compromise utility function would not contain
@@ -1694,11 +1700,11 @@ by \(u_{j}\). (The
 is a well-known example of a theoretically grounded measure of power and
 may serve as an inspiration.)
 
-Also note that Assumption C contains an interpersonal comparison of
+Also note that Assumption \ref{ass:gains} contains an interpersonal comparison of
 utility. However, the potential harm of getting this one ``wrong'' is
 smaller than in the case of using the unweighted sum as a compromise.
 Depending on how you scale the different utility functions relative to
-each other, applying Assumption C may allocate the gains from trade
+each other, applying Assumption \ref{ass:gains} may allocate the gains from trade
 differently, but it nonetheless ensures that everyone receives gains
 from trade at all.
 
@@ -1714,7 +1720,7 @@ power.
 
 In addition to specific solutions, it would be useful to explore the
 necessary conditions for the existence of a weight assignment that
-satisfies assumption C while producing positive gains from trade. For
+satisfies Assumption \ref{ass:gains} while producing positive gains from trade. For
 example, if you already know how much cake each player owns in the above
 Superrational cake cutting, there is no assignment of weights that
 reliably produces gains for everyone. No matter how the weights are
@@ -1729,13 +1735,13 @@ gains from trade (see section
 and ``below-zero-sum'' tradeoffs on resources}}), I suspect that the
 central assumption under which a weight assignment exists is the
 continuity of the expectation
-\(E\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|u^{*}\rbrack\)relative to
+\(\mathrm{E}\lbrack u_{i}(\alpha_{1},...,\alpha_{n})|u^{*}\rbrack\)relative to
 the weights in \(u^{*}\).
 
 \hypertarget{updateless-weights}{\subsubsection{Updateless
 weights}\label{updateless-weights}}
 
-Seeing as the gains from compromise that Assumption C talks about depend
+Seeing as the gains from compromise that Assumption \ref{ass:gains} talks about depend
 on one's current state of knowledge, the weights to be assigned may do
 so, too. Consider the following example:
 
@@ -1747,7 +1753,7 @@ them owns any cake; however, they know that on day two, each will
 receive two control buttons for a distant machine, capable of producing
 and shipping only one type of cake. While it is, at this point, unknown
 which flavor of cake it will produce, they will know the type of cake
-maker, once they receive the button. They will have the same amount of
+maker once they receive the button. They will have the same amount of
 control over where the cake from the cake machine is sent: each agent
 can, by pressing one of the buttons, send some amount of cake to
 himself. By pressing the other button, they can send a 20\% larger
@@ -1777,7 +1783,7 @@ are fully symmetric, it seems reasonable to set
 where \(s_{1},v_{1},s_{2},v_{2}\) are, again, the amounts of cake
 received by each player (which can be calculated from a set of actions).
 By any reasonable definition of ``gains from compromise'', this
-satisfies Assumption C. Accepting this compromise effectively means that
+satisfies Assumption \ref{ass:gains}. Accepting this compromise effectively means that
 agent 1 will receive all of the cake if the machine makes strawberry
 cakes, and agent 2 will receive all of the cake if the machine makes
 vanilla cakes.
@@ -1903,12 +1909,10 @@ increasing order of the strength of their implications:
   (prominent) value systems if it only gives you a comparatively small
   gain.
 \item
-  \begin{quote}
   Utility functions that contribute a lot, e.g. because opportunities to
   increase them are rare, should perhaps receive disproportionate focus
   whenever such an opportunity arises. Otherwise, agents with such
   utility functions would have little incentive to compromise.
-  \end{quote}
 \item
   When the values of superrational cooperators diverge on some issue
   with a roughly equal number of supporters (or resources) on each side,
@@ -1923,19 +1927,15 @@ increasing order of the strength of their implications:
   control as spending it on their zero-sum campaigning, as well as doing
   additional good for others.''
 \item
-  \begin{quote}
   Try to benefit many value systems at once, and deprioritize issues
   that are very specific to you or other agents (see section
   \protect\hyperlink{universalism}{\emph{Universalism}}).
-  \end{quote}
 \item
   Metaphorically speaking, try to increase the size of the compromise
   pie, rather than to increase the size of your own piece.
 \item
-  \begin{quote}
   In any situation, maximize for the (prominent) value systems that have
   the highest stakes in your decision.
-  \end{quote}
 \item
   For any policy decision, ask yourself whether superrationalists with
   other value systems would plausibly arrive at the same decision (to
@@ -1959,7 +1959,7 @@ moves of the other players.\footnote{Again, see the technical note
   definitions of coordination.} For example, consider the following
 variation of the
 \href{https://en.wikipedia.org/wiki/Platonia_dilemma}{\emph{Platonia
-dilemma}}, adapted from \parencite{Hofstadter1983-az}:
+dilemma}}, adapted from Hofstadter \parencite{Hofstadter1983-az}:
 
 \begin{quote}
 \textbf{Platonia five.} One fine day, out of the blue, you get a letter
@@ -2050,7 +2050,7 @@ which
 a probability of about \(20\%\) that the money is won, and thus a
 probability of about \(20\% \cdot p = 5\%\) that we win the money.
 
-Although a \(20\%\)probability of the money being won is better than
+Although a \(20\%\) probability of the money being won is better than
 \(0\%\), it is still not quite satisfactory relative to the \(100\%\)
 that could be achieved with perfect coordination\footnote{Specifically,
   if the 20 participants could let some some uniform random process
@@ -2077,9 +2077,9 @@ get the money by sending in a letter. Many coordination problems suffer
 from the opposite problem, namely
 \href{https://en.wikipedia.org/wiki/Diffusion_of_responsibility}{\emph{diffusion
 of responsibility}}. Consider the following example, versions of which
-were also discussed by, e.g.,
-\href{https://sl4librarian.files.wordpress.com/2016/12/two-bird-deaths-one-throw-leslie.pdf}{\emph{Leslie
-(1991, ch. 5)}} and \parencite{Drescher2006-ky}:
+were also discussed by, e.g., Leslie
+\href{https://sl4librarian.files.wordpress.com/2016/12/two-bird-deaths-one-throw-leslie.pdf}{(Leslie
+1991, ch. 5)} and Drescher \parencite{Drescher2006-ky}:
 
 \begin{quote}
 \textbf{Superrational
@@ -2219,19 +2219,18 @@ standards when interacting with each other. Whenever two drivers drive
 towards each other on a road, they face the coordination game with a
 payoff matrix resembling that in Table~\ref{right-or-left-hand-traffic}.
 
-\begin{table}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
     \centering
-    \begin{longtable}[]{@{}lll@{}}
-        \toprule
-        player 1 \ player 2 & right-hand &
-        left-hand\tabularnewline
-        \midrule
-    \endhead
-    right-hand & 0 &
-    \href{https://en.wikipedia.org/wiki/Wrong-way_driving}{\emph{-10}}\tabularnewline
-    left-hand & -10 & 0\tabularnewline
-    \bottomrule
-    \end{longtable}
+    \begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm} }
+        & & \multicolumn{2}{c}{player 2} \\
+        \cmidrule[.2ex]{3-4}
+         & & right-hand & left-hand\\
+         \cmidrule[.1ex]{2-4}
+        \multirow{2}{*}{player 1} & right-hand & 0 & \href{https://en.wikipedia.org/wiki/Wrong-way_driving}{\emph{-10}}\\
+        & left-hand & -10 & 0\\
+        \cmidrule[.2ex]{2-4}
+    \end{tabular}
     \caption{Payoff matrix for two people driving in opposite directions.}
     \label{right-or-left-hand-traffic}
 \end{table}
@@ -2266,7 +2265,7 @@ ways as well, as we will see in the following section.
 reciprocity needed: whom to treat
 beneficially}\label{no-reciprocity-needed-whom-to-treat-beneficially}}
 
-In this section, I will argue that for the application of superrational
+In this section, I will argue that the application of superrational
 cooperation requires no reciprocity. That is, none of the agents who
 benefit from our cooperation have to benefit us. Recall the basic
 argument for superrationality as based on non-causal decision theories:
@@ -2313,7 +2312,7 @@ other agent's choice can causally influence my choice, etc.\footnote{Throughout
   may then resemble a
   \href{https://en.wikipedia.org/wiki/Unified_Modeling_Language\#Interaction_diagrams}{\emph{UML
   interaction diagram}}.} (For introductions, see, e.g.
-\parencite{Axelrod2006-ci,Trivers1971-rb,Fehr1999-pd,Dawkins1976-cd,Taylor1987-wn,Buss2015-kp}.)
+\cite{Axelrod2006-ci,Trivers1971-rb,Fehr1999-pd,Dawkins1976-cd,Taylor1987-wn,Buss2015-kp}.)
 
 Superrational cooperation also works in the above scheme, although
 repetition is not required. The
@@ -2344,7 +2343,7 @@ successor's payoff by \$5. By sending in `D', they can increase their
 own payoff by \$2. As usual, the participants are told that they are all
 rational or that they use similar decision mechanisms. Every participant
 only cares about the balance of her own bank account, and not about
-Omega's or that of the other 19 participants. Upon receiving the letter,
+Omega's or that of the other 6 participants. Upon receiving the letter,
 should you cooperate or defect?
 
 \textbf{Iterated donation circle.} Like the circular donation game, only
@@ -2380,7 +2379,7 @@ small probability still leaves everyone else best off if they continue
 to use tit for tat.
 
 However, the same Nash equilibrium is also hard to achieve and unstable
-in a different sense, as it requires all 6 participant to use the same
+in a different sense, as it requires all 6 participants to use the same
 kind of strategy. Your response to your predecessor's cooperation is
 mediated by multiple other agents. If only one of them does not
 propagate your response correctly, the causal path from you to your
@@ -2403,7 +2402,7 @@ In an extreme case, there would be no causal path whatsoever from one
 participant's cooperation to that of his predecessor, making causal
 cooperation lose its entire appeal to the rational agent. Superrational
 cooperation, on the other hand, may still be applicable (cf.
-\parencite{Drescher2006-ky}; see the
+\cite{Drescher2006-ky}; see the
 \protect\hyperlink{gary-drescher-on-superrationality}{\emph{Related
 work}} section).
 
@@ -2435,8 +2434,8 @@ ladder.
 %\includegraphics[width=5.19271in,height=0.49167in]{media/image24.jpg}
     \caption{A linear cooperation graph (graph theoretically
 speaking, a 1-ary tree) representing schemes of cooperation like that in
-the donation ladder. (An arrow from A to B indicates that A can benefit
-B.)}
+the donation ladder. An arrow from A to B indicates that A can benefit
+B.}
     \label{donation-ladder}
 \end{figure}
 
@@ -2458,7 +2457,7 @@ only (or primarily) care about my present experiences, they can never
 reward me in return. However, I could try to benefit future versions of
 myself to make it more likely that past versions of me have behaved
 nicely toward myself. More discussion with references to the literature
-is given by \parencite{Drescher2006-ky}.
+is given by Drescher (\cite{Drescher2006-ky}, section 7.3.4).
 
 Linear cooperation hierarchies come with a twist, however. Consider the
 following variant of the Linear hierarchical donation game:
@@ -2525,7 +2524,7 @@ be maintained if all the agents are updateless in the first place (see
 section
 \protect\hyperlink{lack-of-knowledge-is-evidential-power-part-ii-taking-a-step-back}{\emph{Lack
 of knowledge is evidential power, part II: taking a step back}}, cf.
-\parencite{Drescher2006-ky}). If all of this is not the
+\cite{Drescher2006-ky}, chapter 7.2.2). If all of this is not the
 case, nothing can change the fact that at least No. 1
 ``\href{https://wiki.lesswrong.com/wiki/Rationality_is_systematized_winning}{\emph{wins}}
 by defecting once she knows her position on the list.
@@ -2626,7 +2625,7 @@ its dominance and consequently have no reason to be friendly to the
 others -- absent precommitment, the use of updateless decision theory,
 and the like.
 
-Another example of such power hierarchies that of simulations.
+Another example of such power hierarchies is that of simulations.
 Simulators can causally influence the simulated in any way they want,
 but the simulated can do little to causally affect the simulators (e.g.,
 by
@@ -2743,7 +2742,7 @@ than incurring some other limitation that excludes us).
 
 It seems risky to place any stronger limitation on the set of our
 beneficiaries, since this would give us reason to fear exclusion by
-other agents (cf. \parencite{Drescher2006-ky}), as we have
+other agents (cf. \cite{Drescher2006-ky}), as we have
 seen in section
 \protect\hyperlink{hierarchies-and-acyclic-graphs}{\emph{Hierarchies
 and acyclic graphs}}. If we so much as try to look for rules of
@@ -2756,8 +2755,8 @@ example, two artificial intelligences explicitly based on the same
 decision theory may correlate more than two (non-copied) humans, even if
 both have some incentive to cooperate. The stronger the correlation
 between us and some other agent, the more we will benefit
-superrationally from helping them (c.f.
-\parencite{Drescher2006-ky}). To illustrate this, consider a
+superrationally from helping them (.f.
+\cite{Drescher2006-ky}). To illustrate this, consider a
 one-shot prisoner's dilemma-like situation in which two very similar
 agents can simultaneously decide whether to give the other one some
 reward \(b_{\text{other}}\) or to walk away with a smaller reward
@@ -2768,25 +2767,27 @@ reward \(b_{\text{other}}\) or to walk away with a smaller reward
 Now, imagine the two agents are perfectly correlated, i.e. they always
 make the same decision. If this is the case, both agents should
 cooperate whenever
-
-\(b_{\text{other}} > b_{u}\). (*)
+$$
+b_{\text{other}} > b_{u}. (*)
+$$
 
 Now consider a situation in which the correlation between the two agents
 is weaker. Then, in EDT terms, they should cooperate if cooperation (C)
 is higher in expected value than defection (D), i.e. if
-
-\(E\lbrack C\rbrack > E\lbrack D\rbrack\).
+$$
+\mathrm{E}\lbrack C\rbrack > \mathrm{E}\lbrack D\rbrack.
+$$
 
 Using conditional probabilities, we can reformulate this as
-
-\(P(C|C) \cdot b_{\text{other}} > P(C|D) \cdot (b_{\text{other}} + b_{u}) + P(D|D) \cdot b_{u} = P(C|D) \cdot b_{\text{other}} + b_{u}\),
-
+$$
+P(C|C) \cdot b_{\text{other}} > P(C|D) \cdot (b_{\text{other}} + b_{u}) + P(D|D) \cdot b_{u} =
+P(C|D) \cdot b_{\text{other}} + b_{u},
+$$
 where, for example, \(P(C|C)\) is the probability that the other side
-cooperates conditional on my cooperation. Solving for
-\(b_{\text{other}}\) yields
-
-\(b_{\text{other}} > \frac{b_{u}}{P(C|C) - P(C|D)}\), (**)
-
+cooperates conditional on my cooperation. Solving for \(b_{\text{other}}\) yields
+$$
+b_{\text{other}} > \frac{b_{u}}{P(C|C) - P(C|D)}, (**)
+$$
 where \(P(C|C) - P(C|D)\) can be interpreted as quantifying how much
 more likely my cooperation makes the other's cooperation. Because there
 is at least some correlation, the term is always greater than 0. If the
@@ -2795,9 +2796,9 @@ that we get (*) as a special case of (**). If the correlation is less
 than perfect, then \(b_{a} > b_{s}\) may not be enough. For example, if
 \(P(C|C) = 0.8 = P(D|D)\) (such that whatever one agent does, the other
 agent is 80\% likely to do the same), then it must hold that
-
-\(b_{a} > \frac{b_{s}}{P(C|C) - P(C|D)} = \frac{b_{s}}{0.8 - 0.2} = \frac{5}{3}b_{s}\).
-
+$$
+b_{a} > \frac{b_{s}}{P(C|C) - P(C|D)} = \frac{b_{s}}{0.8 - 0.2} = \frac{5}{3}b_{s}.
+$$
 Thus, the threshold for cooperation increases as the correlation between
 the two agents decreases.
 

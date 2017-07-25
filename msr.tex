@@ -1,9 +1,11 @@
 \documentclass[]{article}
 \usepackage{lmodern}
 \usepackage[margin=1.5in]{geometry}
-\usepackage{amssymb,amsmath}
+\usepackage{amssymb,amsmath,amsthm}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{makecell}
+\usepackage{multirow}
 \usepackage[backend=biber,natbib=true,style=authoryear-comp,citestyle=authoryear]{biblatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -62,6 +64,20 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+% Useful commands
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=3mm plus 1mm minus 1mm
+  \thm@postskip=\thm@preskip % or whatever, if you don't want them to be equal
+}
+\makeatother
+\theoremstyle{plain}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\renewcommand*{\theassumption}{\Alph{assumption}}
 % set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
