@@ -16,7 +16,7 @@ vote and lobby in favor or against mass surveillance, abortion,
 marijuana legalization or the death penalty. Perhaps MSR, while
 interesting in theory, is practically impossible to apply because of our
 ignorance of the values in the multiverse? (Also see section
-\ref{objection-based-on-uncertainty-about-the-values-of-superrationalists-in-the-multiverse}.'') While our uncertainty about the values of our
+\ref{objection-based-on-uncertainty-about-the-values-of-superrationalists-in-the-multiverse}.) While our uncertainty about the values of our
 collaborators is no doubt a major obstacle to the application of MSR, I
 will nonetheless argue that there are relevant policy changes that we
 can implement even today.
@@ -42,7 +42,7 @@ preserving local traditions in general). On the other hand, we can be
 reasonably confident that many extraterrestrials care about satisfying
 the preferences of some other agents (e.g., ``innocent'' agents capable
 of reciprocating) (see, e.g.,
-\parencite{Axelrod2006-ci,Trivers1971-rb,Fehr1999-pd,Dawkins1976-cd,Taylor1987-wn,Buss2015-kp}).
+\cite{Axelrod2006-ci,Trivers1971-rb,Fehr1999-pd,Dawkins1976-cd,Taylor1987-wn,Buss2015-kp}).
 Hence, we should perhaps embrace such ``universal'' moral values more
 than human superrationalists would otherwise do. (We explore this
 further in section
@@ -149,10 +149,10 @@ kin, and their friends are all special. From the outside view, however,
 most people are not more important than others. It is thus in the
 benefit of altruistic outsiders (e.g., other humans) to reduce the
 difference between how much people care about themselves, their family,
-friends, etc. versus other humans. In
-\parencite{Singer2011-yx} terminology, an outsider who cares
+friends, etc. versus other humans. In Singer
+terminology, an outsider who cares
 about all humans equally would similarly want people's ``circle of
-empathy'' to expand outwards to include other humans. In this way, we
+empathy'' to expand outwards to include other humans \parencite{Singer2011-yx}. In this way, we
 can align their decisions with the goals of the outside party.
 
 The perspective of superrational collaborators elsewhere in the
@@ -204,7 +204,7 @@ sanctity/degradation (see section
 aspects, whereas conservatives care about all five.
 
 Liberal values are universalist, while the exclusively conservative
-values are not. As \parencite{Greene2013-sq}) writes (links
+values are not. As Greene writes \parencite{Greene2013-sq}) (links
 added from the endnotes):
 
 \begin{quote}
@@ -252,9 +252,8 @@ spreading values in the domains of authority, loyalty, and sanctity is
 not very fruitful. Instead, we should try to make people care more about
 the universalist liberal foundations.
 
-Having said this, there may be a few exceptions to the rule. (Cf. the
-last paragraph section
-\ref{universalism}.) For example,
+Having said this, there may be a few exceptions to the rule (cf. the
+last paragraph section \ref{universalism}). For example,
 Christian social conservatives may like parental authority even if one's
 parents are Muslims or extraterrestrials. In the sanctity domain, a
 preference for leaving nature untouched may extend beyond an agent's
@@ -316,7 +315,7 @@ categorical imperative}}.\footnote{That said, advocates of simple
   \href{https://80000hours.org/articles/money-and-happiness/}{\emph{has}}
   a greater impact on a poor than a rich person's happiness,
   utilitarianism tends to prefer an even distribution of resources
-  \parencite{noauthor\_2012-yb}. Similarly, it has been
+  \parencite{noauthor_2012-yb}. Similarly, it has been
   argued that utilitarianism is (often) consistent with the wrongness of
   killing, justice \parencite{Mill1863-bm} and other moral
   rules \parencite{Smart1973-eo}. This decreases the value
@@ -324,7 +323,7 @@ categorical imperative}}.\footnote{That said, advocates of simple
   that many (especially critics of utilitarianism) have argued for the
   opposite, i.e. that there are some moral intuitions that
   utilitarianism cannot make sense of
-  \parencite{noauthor\_undated-mj}. For example, they argue
+  \parencite{noauthor_undated-mj}. For example, they argue
   that utilitarianism is not (always) consistent with moral intuitions
   about equality \parencite{Pogge1995-mo,Gosepath2011-vx},
   the wrongness of killing \parencite{Henson1971-le}, and
@@ -337,14 +336,14 @@ between these opposing value systems and it would be better if everyone
 adopted a mix of different values instead. Thus, we may want to promote
 moral pluralism.
 
-One version of this view is \parencite{MacAskill2014-ca}
-moral uncertainty. Operating under the assumption of moral realism
+One version of this view is MacAskills' 
+moral uncertainty \parencite{MacAskill2014-ca}. Operating under the assumption of moral realism
 (which I reject), he argues that and how we should be uncertain about
 which ethical system is correct. Another related view is the normative
-reading of \parencite{Yudkowsky2011-ux}
+reading of Yudkowsky's
 \href{https://wiki.lesswrong.com/wiki/Complexity_of_value}{\emph{complexity
-of value}} (cf. \parencite{Stewart-Williams2015-gg}, section
-``Morality Is a Mess''; \parencite{Muehlhauser2012-ib}),
+of value}} (cf. \cite{Stewart-Williams2015-gg}, section
+``Morality Is a Mess''; \cite{Muehlhauser2012-ib}),
 according to which what humans care about cannot be captured by a simple
 moral system and instead incorporates a large number of different
 values.
@@ -580,31 +579,39 @@ each of the two agents intrinsically -- would assign no value to either
 of the four outcomes, nor would they invest any resources in bringing
 about a particular outcome.
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-player 1 \ player 2 & C & D\tabularnewline
-\midrule
-\endhead
-C & 2 , 2 & 0 , 3\tabularnewline
-D & 3 , 0 & 1 , 1\tabularnewline
-\bottomrule
-\end{longtable}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{1cm} p{5mm} p{1cm} p{1cm} }
+        & & \multicolumn{2}{c}{player 2} \\
+        \cmidrule[.2ex]{3-4}
+         & & C &  D\\
+         \cmidrule[.1ex]{2-4}
+        \multirow{2}{*}{player 1} & C & 2 , 2 & 0 , 3\\
+        & D & 3 , 0  & 1 , 1\\
+        \cmidrule[.2ex]{2-4}
+    \end{tabular}
+    \caption{The payoff matrix of a prisoner's dilemma.}
+    \label{PD-payoff-matrix}
+\end{table}
 
-Table \ref{PD-payoff-matrix}: The payoff matrix of a prisoner's dilemma.
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-player 1 \ player 2 & C & D\tabularnewline
-\midrule
-\endhead
-C & 4 & 3\tabularnewline
-D & 3 & 2\tabularnewline
-\bottomrule
-\end{longtable}
-
-Table \ref{PD-payoff-matrix-superrational-third-party}: The effective
-payoffs of a prisoner's dilemma to a third party that cooperates
-superrationally.
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{1cm} p{5mm} p{5mm} p{5mm} }
+        & & \multicolumn{2}{c}{player 2} \\
+        \cmidrule[.2ex]{3-4}
+         & & C &  D\\
+         \cmidrule[.1ex]{2-4}
+        \multirow{2}{*}{player 1} & C & 4&  3\\
+        & D & 3 & 2\\
+        \cmidrule[.2ex]{2-4}
+    \end{tabular}
+    \caption{The effective payoffs of a prisoner's dilemma to a third party that cooperates
+superrationally.}
+    \label{PD-payoff-matrix-superrational-third-party}
+\end{table}
 
 Next, let us assume that, rather than some third party, player 1 himself
 learns about and adopts multiverse-wide superrational cooperation, while
@@ -645,20 +652,24 @@ of this type of game exist, but overall, the game has not been studied
 extensively in the literature. Further research is thus needed to
 identify the right strategy for iterative versions of the game.
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-player 1 \ player 2 & C & D\tabularnewline
-\midrule
-\endhead
-C & 4 , 2 & 3 , 3\tabularnewline
-D & 3 , 0 & 2 , 1\tabularnewline
-\bottomrule
-\end{longtable}
-
-Table \ref{PD-payoff-matrix-superrational-prisoner}: The effective payoffs
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{1cm} p{5mm} p{1cm} p{1cm} }
+        & & \multicolumn{2}{c}{player 2} \\
+        \cmidrule[.2ex]{3-4}
+         & & C &  D\\
+         \cmidrule[.1ex]{2-4}
+        \multirow{2}{*}{player 1} & C & 4 , 2 & 3 , 3\\
+        & D & 3 , 0  & 2 , 1\\
+        \cmidrule[.2ex]{2-4}
+    \end{tabular}
+    \caption{The effective payoffs
 of a prisoner's dilemma, in which player 1 cooperates superrationally
 (with extraterrestrial agents who hold player 2's values), but player 2
-does not.
+does not.}
+    \label{PD-payoff-matrix-superrational-prisoner}
+\end{table}
 
 \hypertarget{increasing-capabilities}{\subsection{Increasing
 capabilities}\label{increasing-capabilities}}
@@ -686,10 +697,10 @@ In economics, the
 approach}} is an alternative to welfare economics and primarily studies
 how to measure an individual's capabilities. Some of its metrics include
 health, freedom of thought/expression, education, political
-participation, and property rights. In his dissertation on \emph{Ethics
-Under Moral Neutrality},
-\href{https://rucore.libraries.rutgers.edu/rutgers-lib/34078/pdf/1/}{\emph{Evan
-Gregg Williams (2011)}} discusses a topic closely related to acting
+participation, and property rights. In his dissertation on
+\href{https://rucore.libraries.rutgers.edu/rutgers-lib/34078/pdf/1/}{\emph{Ethics
+Under Moral Neutrality (2010)}}, Evan
+Gregg Williams discusses a topic closely related to acting
 under MSR: he assumes that we do not know what the ``correct'' moral
 theory is\footnote{\label{non-cognitivism} I side with moral anti-realism
   \parencite{Joyce2016-no} and
@@ -709,12 +720,12 @@ about the utility functions of other agents in the multiverse as well as
 their diversity rather than conflicting intuitions about the ``moral
 truth''. Many of Williams' conclusions resemble those of the present
 paper. For instance, he identifies the appeal of preference
-utilitarianism in ch. 3.1 of the dissertation (compare sections
+utilitarianism in chapter 3.1 of the dissertation (compare sections
 \protect\hyperlink{_2uwv44pwn55u}{\emph{Aggregated utility}} and
 \ref{multiverse-wide-preference-utilitarianism} of the present paper). Many of his
 intervention ideas are about improving the capabilities of others who
 may plausibly have access to the moral truth. First and foremost, he
-defends democracy (ch. 3.3) and liberty (ch. 3.4).
+defends democracy (chapter 3.3) and liberty (chapte 3.4).
 
 Of course, MSR does not have the same implications as the above
 approaches. For one, when we raise others' capabilities as
@@ -759,7 +770,9 @@ A similar danger lies in finding out whether other agents cooperate (see
 section
 \ref{lack-of-knowledge-is-evidential-power-part-i-the-other-agents}).
 
-Promoting multiverse-wide superrationality
+\subsubsection{Promoting multiverse-wide superrationality}
+\label{promoting-multiverse-wide-superrationality}
+
 
 Since multiverse-wide superrational cooperation produces gains from
 compromise (under certain assumptions about the collaborators, discussed
@@ -801,7 +814,7 @@ that are more compatible with some human value system.\footnote{For
   organization even mentions it in their name: the
   \href{http://humancompatible.ai/about}{\emph{Center for
   Human-Compatible AI}}. Also consider the
-  ``\href{https://futureoflife.org/ai-principles/}{\emph{Asilomar AI
+  \href{https://futureoflife.org/ai-principles/}{\emph{Asilomar AI
   principles}} and the discussion of value loading by
   \parencite{Bostrom2014-pc}.} From a multiverse-wide
 cooperation perspective, this is positive to the extent that human
@@ -831,8 +844,8 @@ resembled those of other civilizations, the goals we give to an AI might
 differ significantly from what extraterrestrials care about in our
 civilization.
 
-FRI has previously investigated ways of making AI alignment failures
-less harmful by focusing on avoiding very bad AI outcomes rather than
+\href{https://foundational-research.org}{\emph{FRI}} has previously investigated ways of making AI
+alignment failures less harmful by focusing on avoiding very bad AI outcomes rather than
 attempting more fine-grained control
 \parencite{Gloor2016-oy}. One motivation to do so is this
 approach's cooperativeness: different value systems may disagree on what
@@ -890,7 +903,7 @@ goals and aggregate them.\footnote{Of course, identifying superrational
   course I am not very confident in this claim. Similarly, it may be
   that MSR-type aggregation (e.g., variance normalization) is more or
   less difficult to implement than the aggregation procedures one would
-  implement for humans.} (A somewhat similar proposal was made by
+  implement for humans.} (A somewhat similar proposal was made by Bostrom
 \parencite{Bostrom2014-gy}; see section
 \ref{acausal-trade}.)
 
@@ -994,4 +1007,3 @@ values, such a compromise-friendly (``porous'', in Bostrom's
 terminology) utility function would usually only be a backup (see
 \href{https://foundational-research.org/files/backup-utility-functions.pdf}{\emph{Oesterheld
 2016}}).
-
