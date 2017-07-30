@@ -1,0 +1,181 @@
+\documentclass[]{article}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage[backend=biber,natbib=true,style=authoryear-comp,citestyle=authoryear]{biblatex}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={Values and non-causal reasoning of superintelligent AIs},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\bibliography{references_ai.bib}  % The name of your .bib file.
+
+\title{Values and non-causal reasoning of superintelligent AIs \\ \vspace{5mm} \small{Complementary notes on multiverse-wide superrationality}}
+\author{Caspar \"Osterheld}
+\date{}
+
+\begin{document}
+\maketitle
+
+Because evolved minds (whether
+\href{https://en.wikipedia.org/wiki/Mind_uploading}{\emph{uploaded or
+not}}) are not well-suited to frequent
+\href{https://en.wikipedia.org/wiki/Software_maintenance}{\emph{maintenance}}
+or improvement, I expect many long-lasting civilizations to eventually
+create artificial intelligence (AI) of a higher level of intelligence.
+Readers who have yet to read about the topic are recommended to do so.
+Of the many introductory texts on superintelligent AI, I can personally
+recommend the following three:
+
+\begin{itemize}
+\item
+  Tim Urban's highly accessible two-part introduction
+  (\href{http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html}{\emph{part
+  1}},
+  \href{http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html}{\emph{part
+  2}}) on \href{http://waitbutwhy.com/}{\emph{Wait But Why}},
+\item
+  Nick Bostrom's more elaborate and academic book
+  \href{https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies}{\emph{\emph{Superintelligence}}},
+  and
+\item
+  Lukas Gloor's essay entitled
+  \href{https://foundational-research.org/altruists-should-prioritize-artificial-intelligence/}{\emph{\emph{Altruists
+  Should Prioritize Artificial Intelligence}}}.
+\end{itemize}
+
+In this piece, we assume some basic knowledge and only discuss the two
+questions most relevant for multiverse-wide superrationality: do AIs
+behave superrationally, i.e. do their decisions correlate with ours? And
+what values would superrational AIs have?
+
+\section{AIs and superrationality}\label{ais-and-superrationality}
+
+Acausal decision theorists have not yet settled on a formal decision
+theory that could be implemented in an AI (see section ``A short survey
+of decision theories and their relation to superrationality'' in
+\emph{Multiverse-wide Cooperation via Superrationality}).
+%TODOLaTeX: link
+Nevertheless, it seems plausible that AIs will use a decision
+theory that allows for acausal reasoning in a proper way. Indeed,
+because AIs have a readable and copyable source code, acausal reasoning
+may well be more relevant for them than for other agents.
+
+However, some additional considerations should be taken into account
+when thinking about behaving beneficially toward AIs. For one, the
+correlation between human minds and AIs may be significantly weaker than
+that with the other evolved minds, and this would imply that behaving in
+a friendly way toward AIs is less important than doing so towards
+evolved minds (see section ``Only helping superrational cooperators
+helps you superrationally'' in \emph{Multiverse-wide Cooperation via
+Superrationality}).
+%TODOLaTeX: link
+Besides AI minds being designed rather than evolved, one could argue that superintelligent AIs will
+simply know a lot more than we ever will. Perhaps they will even know,
+in great detail, how we behave and hence not need to cooperate in order
+to make our cooperation more likely. But as explained in section
+``Lack
+of knowledge is evidential power, part II: Taking a step back'' of
+\emph{Multiverse-wide Cooperation via Superrationality}, 
+%TODOLaTeX: link
+any rational
+agent should precommit before learning about the other agent's level of
+cooperation (cf. section
+``No
+reciprocity required for superrationality -- Whom to treat
+beneficially'' in \emph{Multiverse-wide Cooperation
+via Superrationality}).
+%TODOLaTeX: link 
+AIs will probably learn and think about superrationality before they can use their superior knowledge of
+evolutionary psychology to assess the fraction of humans in the
+multiverse who cooperate. At that point, it should be optimal for the AI
+to precommit to legitimately cooperative behavior so that the other
+agents in the multiverse make similar precommitments.
+
+Overall, I think we should attempt to cooperate superrationally with
+AIs.
+
+\section{The values of superintelligent AIs}
+\label{the-values-of-superintelligent-ais}
+
+Two competing factors appear to be driving AI values: the values of
+their creators and technical feasibility. Since the first
+superintelligent AIs in any evolutionary lineage are created by evolved
+minds, we should expect their values to reflect those of their evolved
+creators. However, there are various reasons to assume that it is
+difficult to make an AI do what one really wants. This suggests that at
+least some civilizations will either fail to value-align their
+superintelligent AI or resort to suboptimal solutions.
+
+Any particular problem in value alignment has specific, yet
+hard-to-predict implications for how value loading might fail or how
+civilizations will attempt to solve value loading. For example,
+\href{https://wiki.lesswrong.com/wiki/Complexity_of_value}{\emph{complexity
+of value}} suggests that most AIs will not actually hold their evolved
+creators' values, but rather some (simple) preprogrammed approximation
+or some indirect specification based on value learning (see
+\cite{Bostrom2014-ay}). As another example, the problem of
+\href{https://arbital.com/p/probable_environment_hacking/}{\emph{anthropic capture or probable
+environment hacking}} suggests that indirect specifications of values are less common and that
+``mean'' value systems (i.e. ones that imply a willingness to hack other AI's probable environment)
+will have more resources than one would otherwise expect.  Some failure modes (like
+\href{https://casparoesterheld.com/2016/07/08/wireheading/}{\emph{wireheading}}) would also make an
+AI care little about what happens elsewhere in the multiverse.
+
+The field of AI safety is still in its infancy. While I hope to have
+illustrated how we can make principled guesses about the values of
+superintelligent AIs in the multiverse in principle, this infancy makes
+it hard to know how AI values will differ from the values of evolved
+beings.
+
+\begin{sloppypar} % Prevents URLs from exceeding page width
+\printbibliography
+\end{sloppypar}
+\end{document}
