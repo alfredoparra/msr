@@ -7,6 +7,8 @@
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage[backend=biber,natbib=true,style=authoryear-comp,citestyle=authoryear]{biblatex}
+%\usepackage{endnotes}
+%\let\footnote=\endnote
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -30,10 +32,10 @@
 \usepackage{xcolor}
 \hypersetup{
             colorlinks,
-            linkcolor={red!50!black},
+            linkcolor={red!80!black},
 		    citecolor={black},
-		    urlcolor={blue!50!black},
-            pdftitle={Multiverse-wide Cooperation via Correlated Decision Making},
+		    urlcolor={blue!80!black},
+            pdftitle={Multiverse-wide Cooperation via Correlated Decision-Making},
             pdfborder={0 0 0},
             breaklinks=true}
 \DeclareCiteCommand{\citeyear}
@@ -95,7 +97,7 @@
 
 \bibliography{references.bib}  % The name of your .bib file.
 
-\title{Multiverse-wide Cooperation via Correlated Decision Making}
+\title{Multiverse-wide Cooperation via Correlated Decision-Making}
 \author{Caspar Oesterheld}
 \date{}
 
@@ -130,7 +132,10 @@ basic idea}\label{introduction-the-basic-idea}}
 \section{Appendix}\label{appendix}
 \input{appendix}
 
+%\theendnotes
+
 \begin{sloppypar} % Prevents URLs from exceeding page width
 \printbibliography
 \end{sloppypar}
+
 \end{document}
