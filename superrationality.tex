@@ -2732,15 +2732,10 @@ both have some incentive to cooperate. The stronger the correlation
 between us and some other agent, the more we will benefit
 superrationally from helping them (cf.
 \cite{Drescher2006-ky}). To illustrate this, consider a
-one-shot prisoner's dilemma-like situation in which two very similar
+one-shot prisoner's dilemma-like situation  (cf. figure \ref{mutual-cooperation-graph}) in which two very similar
 agents can simultaneously decide whether to give the other one some
 reward \(b_{\text{other}}\) or to walk away with a smaller reward
-\(b_{u}\) for themselves. The cooperation graph looks like this:
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=1.78in]{figs/mutual-cooperation-graph}
-\end{figure*}
+\(b_{u}\) for themselves.
 
 Now, imagine the two agents are perfectly correlated, i.\,e. they always
 make the same decision. If this is the case, both agents should
@@ -2753,12 +2748,7 @@ cooperate whenever
 
 Now consider a situation in which the correlation between the two agents
 is weaker. Then, in EDT terms, they should cooperate if cooperation (C)
-is higher in expected value than defection (D), i.\,e. if
-$$
-\mathbb{E}\lbrack C\rbrack > \mathbb{E}\lbrack D\rbrack.
-$$
-
-Using conditional probabilities, we can reformulate this as
+is higher in expected value than defection (D). Using conditional probabilities, we can formulate this as
 $$
 P(C\mid C) \cdot b_{\text{other}} > P(C\mid D) \cdot (b_{\text{other}} + b_{u}) + P(D\mid D) \cdot b_{u} =
 P(C\mid D) \cdot b_{\text{other}} + b_{u},
@@ -2825,7 +2815,7 @@ turn maximizes our own benefits.
 
 We are used to thinking about cooperation in causal terms, i.\,e. about
 how a certain cooperative act may in the end pay us back causally and in
-this universe. If we think about superrational cooperation in this old
+this universe. If we think about superrational cooperation in this
 mindset, we may be tempted to propose measures that are critically
 suboptimal from a superrational standpoint. For instance, one may adopt
 a ``compartmentalized good will'', talking at length about cooperation
