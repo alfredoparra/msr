@@ -1617,7 +1617,7 @@ normalization does not appear especially promising.
 Many other approaches to interpersonal comparisons (see, e.\,g.,
 \cite{Sen2014-ns}\footnote{Another approach, which I
   have brought up in previous work
-  \citeyear{Oesterheld2016-pq}, is to use any utility
+  \parencite[][section 3.2]{Oesterheld2016-pq}, is to use any utility
   function extraction procedure that is not explicitly biased in any way
   and hope that such ``fair {[}or, perhaps, equal{]} treatment in
   determining all individuals' utility functions induces moral
@@ -1676,10 +1676,10 @@ utility function is part of the compromise, then this could mean that
 joining the compromise produces no additional gains from trade for that
 agent. One way to weight different utility functions based on their
 power would be to divide Eq.~\eqref{eq:gains} by some measure of the resources invested
-by \(u_{j}\). (The
+by \(u_{j}\). The
 \href{https://en.wikipedia.org/wiki/Shapley_value}{Shapley value}
 is a well-known example of a theoretically grounded measure of power and
-may serve as an inspiration.)
+may serve as an inspiration.
 
 Also note that Assumption \ref{ass:gains} contains an interpersonal comparison of
 utility. However, the potential harm of getting this one ``wrong'' is
@@ -1713,7 +1713,7 @@ utility per unit of cake, in which case the compromise utility function
 is indifferent about who receives the cake. Besides the existence of
 gains from trade (see section
 \ref{zero-sum-and-below-zero-sum-tradeoffs-on-resources}), I suspect that the
-central assumption under which a weight assignment exists is the
+central assumption under which a weight assignment satisfying Assumption \ref{ass:gains} exists is the
 continuity of the expectation
 \(\mathbb{E}\lbrack u_{i}(\alpha_{1},\dotsc,\alpha_{n})\mid u^{*}\rbrack\) relative to
 the weights in \(u^{*}\).
@@ -1733,7 +1733,7 @@ them owns any cake; however, they know that on day two, each will
 receive two control buttons for a distant machine, capable of producing
 and shipping only one type of cake. While it is, at this point, unknown
 which flavor of cake it will produce, they will know the type of cake
-maker once they receive the button. They will have the same amount of
+maker once they receive the buttons. They will have the same amount of
 control over where the cake from the cake machine is sent: each agent
 can, by pressing one of the buttons, send some amount of cake to
 himself. By pressing the other button, they can send a 20\% larger
@@ -1745,9 +1745,9 @@ settle on a superrational compromise utility function on day one.
 On day two, they receive the control buttons and learn that it is a
 vanilla cake machine. They still cannot communicate, but use the same
 thought processes. Which button should each of the two press?\footnote{In
-  \href{http://lesswrong.com/lw/2xb/if_you_dont_know_the_name_of_the_game_just_tell/}{If
+  \href{http://lesswrong.com/lw/2xb/if_you_dont_know_the_name_of_the_game_just_tell/}{\emph{If
   you don't know the name of the game, just tell me what I mean to
-  you}, Stuart Armstrong uses a similar game to make a somewhat
+  you}}, Stuart Armstrong uses a similar game to make a somewhat
   similar point.}
 \end{quote}
 
@@ -1810,8 +1810,8 @@ intelligence arms races},
 \href{https://casparoesterheld.com/2016/07/04/self-improvement-races/}{self-improvement
 races},
 \href{http://reducing-suffering.org/is-there-suffering-in-fundamental-physics/}{suffering
-in fundamental physics}, \protect\hyperlink{_v01fa6ipo6d7}{\emph{whole
-brain emulation scenarios}} (see section
+in fundamental physics}, whole
+brain emulation scenarios (see section
 \ref{other-considerations}) and
 \href{https://en.wikipedia.org/wiki/Global_catastrophic_risk}{global
 catastrophic risks}. That is to say: any kind of multiverse is so
@@ -1830,7 +1830,6 @@ many assumptions under the meta-assumption that the results generalize.
 For example, our arguments were often based on perfect correlation
 between the agents. Many aspects of our analysis were also semi-formal
 or informal. For instance, we did not formally justify the claim that
-cooperation is more robust if no coordination is required, or that
 settling on the same compromise utility function creates the largest
 gains from compromise. Further research is thus needed, including
 research into the largely unexplored area of superrational game theory.
@@ -1846,7 +1845,7 @@ compromise may already get us quite far. Even without ever having heard
 a course on game theory, most people have intuitions about fairness that
 seem to suffice in most negotiations. We may expect that similar
 intuitions also suffice for reaping many of the benefits of
-superrational cooperations. It is not sufficient because we will not
+superrational cooperation. It is not sufficient because we will not
 possess formal description of our collaborators' utility functions in
 the foreseeable future, anyway, given that we cannot even formally
 describe our own goals\footnote{\label{we-do-not-know-our-utility-function}
@@ -1898,7 +1897,7 @@ increasing order of the strength of their implications:
   \href{http://felicifia.org/viewtopic.php?t=79\#p486}{writes}:
   ``It is so inefficient that there are pro- and anti-gun control
   charities and pro- and anti-abortion charities. Charities on either
-  side of the divide should be able to agree to 'cancel' off some of
+  side of the divide should be able to agree to `cancel' off some of
   their funds and give it to a mutually agreed good cause (like
   developing world aid). This would do just as much for (or against) gun
   control as spending it on their zero-sum campaigning, as well as doing
@@ -2165,8 +2164,8 @@ respond. Alas, such direct coordination helps will usually be
 unavailable.\footnote{In the game-theoretical concept of
   \href{https://en.wikipedia.org/wiki/Correlated_equilibrium}{correlated
   equilibria}, the agents receive a similar form of coordination help.
-  See Leyton-Brown and Shoan \citeyear{Leyton-Brown2008-un} or
-  Osborne and Rubinstein \citeyear{Osborne1994-ln} for an introduction.}
+  See Leyton-Brown and Shoan \citeyear{Leyton-Brown2008-un} and
+  Osborne and Rubinstein \citeyear{Osborne1994-ln} for introductions.}
 
 So how can people agree, without communicating, on which numbers should
 send in a letter? If the participants are guaranteed to be exact copies
@@ -2210,7 +2209,7 @@ payoff matrix resembling that in Table~\ref{right-or-left-hand-traffic}.
     \begin{tabular}{cc|c|c|}
       & \multicolumn{1}{c}{} & \multicolumn{2}{c}{player 2}\\
       & \multicolumn{1}{c}{} & \multicolumn{1}{c}{right-hand}  & \multicolumn{1}{c}{left-hand} \\\cline{3-4}
-      \multirow{2}*{player 1}  & right-hand & $0$ &\href{https://en.wikipedia.org/wiki/Wrong-way_driving}{-10} \\\cline{3-4}
+      \multirow{2}*{player 1}  & right-hand & $0$ &-10 \\\cline{3-4}
       & left-hand & $-10$ & $0$ \\\cline{3-4}
     \end{tabular}
     \caption{Payoff matrix for two people driving in opposite directions.}
@@ -2292,10 +2291,10 @@ other agent's choice can causally influence my choice, etc.\footnote{Throughout
   backpropagation to recurrent neural networks}. The resulting graph
   may then resemble a
   \href{https://en.wikipedia.org/wiki/Unified_Modeling_Language\#Interaction_diagrams}{UML
-  interaction diagram}.} (For introductions, see, e.\,g.
+  interaction diagram}.} For introductions to causal cooperation, see, e.\,g.
   Axelrod \citeyear{Axelrod2006-ci}, Trivers \citeyear{Trivers1971-rb}, Fehr and Gächter
   \citeyear{Fehr1999-pd}, Dawkins \citeyear{Dawkins1976-cd}, Taylor \citeyear{Taylor1987-wn}, and
-  Buss \citeyear{Buss2015-kp}.)
+  Buss \citeyear{Buss2015-kp}.
 
 Superrational cooperation also works in the above scheme, although
 repetition is not required. The
@@ -2371,7 +2370,7 @@ motivation to cooperate.
 For superrationality-based considerations, on the other hand, neither
 repetition nor the length of the causal path from one participant's
 cooperation to her predecessor are relevant. Instead, superrational
-cooperation only on the correlations between single pairs of agents.
+cooperation only depends on the correlations between single pairs of agents.
 Hence, while the significance of causal cooperation in the Donation
 circle diminishes with every additional participant, the benefits from
 superrational cooperation remain constant regardless of how many players
@@ -2437,7 +2436,7 @@ only (or primarily) care about my present experiences, they can never
 reward me in return. However, I could try to benefit future versions of
 myself to make it more likely that past versions of me have behaved
 nicely toward myself. More discussion with references to the literature
-is given by Drescher (\cite{Drescher2006-ky}, section 7.3.4).
+is given by \citet[section 7.3.4]{Drescher2006-ky}.
 
 Linear cooperation hierarchies come with a twist, however. Consider the
 following variant of the Linear hierarchical donation game:
@@ -2579,7 +2578,7 @@ eventually decided to conceal themselves to some extent, so no one knows
 which of the civilizations is the most powerful. You are the leader of a
 civilization, and one day, you encounter a comparably primitive
 civilization for the first time. According to your advisors, it appears
-that, this other civilization has not even managed to harness the energy
+that this other civilization has not even managed to harness the energy
 of their local star, they still suffer from diseases that your
 civilization's nano-devices could cure in an instant, and so forth. Your
 advisors, citing the other civilization's apparently laughable defense
@@ -2733,15 +2732,10 @@ both have some incentive to cooperate. The stronger the correlation
 between us and some other agent, the more we will benefit
 superrationally from helping them (cf.
 \cite{Drescher2006-ky}). To illustrate this, consider a
-one-shot prisoner's dilemma-like situation in which two very similar
+one-shot prisoner's dilemma-like situation  (cf. figure \ref{mutual-cooperation-graph}) in which two very similar
 agents can simultaneously decide whether to give the other one some
 reward \(b_{\text{other}}\) or to walk away with a smaller reward
-\(b_{u}\) for themselves. The cooperation graph looks like this:
-
-\begin{figure*}
-    \centering
-    \includegraphics[width=1.78in]{figs/mutual-cooperation-graph}
-\end{figure*}
+\(b_{u}\) for themselves.
 
 Now, imagine the two agents are perfectly correlated, i.\,e. they always
 make the same decision. If this is the case, both agents should
@@ -2754,12 +2748,7 @@ cooperate whenever
 
 Now consider a situation in which the correlation between the two agents
 is weaker. Then, in EDT terms, they should cooperate if cooperation (C)
-is higher in expected value than defection (D), i.\,e. if
-$$
-\mathbb{E}\lbrack C\rbrack > \mathbb{E}\lbrack D\rbrack.
-$$
-
-Using conditional probabilities, we can reformulate this as
+is higher in expected value than defection (D). Using conditional probabilities, we can formulate this as
 $$
 P(C\mid C) \cdot b_{\text{other}} > P(C\mid D) \cdot (b_{\text{other}} + b_{u}) + P(D\mid D) \cdot b_{u} =
 P(C\mid D) \cdot b_{\text{other}} + b_{u},
@@ -2826,7 +2815,7 @@ turn maximizes our own benefits.
 
 We are used to thinking about cooperation in causal terms, i.\,e. about
 how a certain cooperative act may in the end pay us back causally and in
-this universe. If we think about superrational cooperation in this old
+this universe. If we think about superrational cooperation in this
 mindset, we may be tempted to propose measures that are critically
 suboptimal from a superrational standpoint. For instance, one may adopt
 a ``compartmentalized good will'', talking at length about cooperation
