@@ -715,12 +715,14 @@ table showing the following mortality rates:
 
 \begin{table}[h!]
     \centering
-    \begin{tabular} {|p{3cm} |p{3cm}| p{3cm}|}
+    \begin{tabular} {p{2cm} p{2.5cm} p{2.5cm}}
         \toprule
         & CGTA present & CGTA absent \\
+        %\midrule
         \midrule
         Chew gum & 89\% die & 8\% die \\
         Don't chew & 99\% die & 11\% die \\
+        %\bottomrule
         \bottomrule
     \end{tabular}
 \end{table}
@@ -1563,7 +1565,7 @@ is, the utility functions are chosen in such a way that their maximum is
   and supremum} must be set to 0 and 1. If the utility functions assume
   arbitrarily high values, range normalization is not possible. That is,
   for an unbounded utility function \emph{u} there is no bounded utility
-  function \emph{u'} that is equivalent to \emph{u}.}~\footnote{For
+  function \emph{u'} that is equivalent to \emph{u}.}\textsuperscript{, }\footnote{For
   ethical comparisons, the lowest and highest values usually depend on
   an agent's moral relevance, or some measure of the intensity of
   preference (un)fulfillment she can experience. Alternatively, the
@@ -2216,14 +2218,12 @@ payoff matrix resembling that in Table~\ref{right-or-left-hand-traffic}.
 \renewcommand{\arraystretch}{1.5}
 \begin{table}[h!]
     \centering
-    \begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm} }
-        & & \multicolumn{2}{c}{player 2} \\
-        \cmidrule[.2ex]{3-4}
-         & & right-hand & left-hand\\
-         \cmidrule[.1ex]{2-4}
-        \multirow{2}{*}{player 1} & right-hand & 0 & \href{https://en.wikipedia.org/wiki/Wrong-way_driving}{-10}\\
-        & left-hand & -10 & 0\\
-        \cmidrule[.2ex]{2-4}
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{player 2}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{right-hand}  & \multicolumn{1}{c}{left-hand} \\\cline{3-4}
+      \multirow{2}*{player 1}  & right-hand & $0$ &\href{https://en.wikipedia.org/wiki/Wrong-way_driving}{-10} \\\cline{3-4}
+      & left-hand & $-10$ & $0$ \\\cline{3-4}
     \end{tabular}
     \caption{Payoff matrix for two people driving in opposite directions.}
     \label{right-or-left-hand-traffic}

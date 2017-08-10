@@ -582,31 +582,26 @@ about a particular outcome.
 \renewcommand{\arraystretch}{1.5}
 \begin{table}[h!]
     \centering
-    \begin{tabular}{p{1cm} p{5mm} p{1cm} p{1cm} }
-        & & \multicolumn{2}{c}{player 2} \\
-        \cmidrule[.2ex]{3-4}
-         & & C &  D\\
-         \cmidrule[.1ex]{2-4}
-        \multirow{2}{*}{player 1} & C & 2 , 2 & 0 , 3\\
-        & D & 3 , 0  & 1 , 1\\
-        \cmidrule[.2ex]{2-4}
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{player 2}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{C}  & \multicolumn{1}{c}{D} \\\cline{3-4}
+      \multirow{2}*{player 1}  & C & $2,\, 2$ & $0,\, 2$ \\\cline{3-4}
+      & D & $3,\, 0$ & $1,\, 1$ \\\cline{3-4}
     \end{tabular}
     \caption{The payoff matrix of a prisoner's dilemma.}
     \label{PD-payoff-matrix}
 \end{table}
 
-
-\renewcommand{\arraystretch}{1.5}
+%\renewcommand{\arraystretch}{1.5}
 \begin{table}[h!]
     \centering
-    \begin{tabular}{p{1cm} p{5mm} p{5mm} p{5mm} }
-        & & \multicolumn{2}{c}{player 2} \\
-        \cmidrule[.2ex]{3-4}
-         & & C &  D\\
-         \cmidrule[.1ex]{2-4}
-        \multirow{2}{*}{player 1} & C & 4&  3\\
-        & D & 3 & 2\\
-        \cmidrule[.2ex]{2-4}
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{player 2}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{C}  & \multicolumn{1}{c}{D} \\\cline{3-4}
+      \multirow{2}*{player 1}  & C & $\,\,4\,\,$ & $3$ \\\cline{3-4}
+      						   & D & $\,\,3\,\,$ & $2$ \\\cline{3-4}
     \end{tabular}
     \caption{The effective payoffs of a prisoner's dilemma to a third party that cooperates
 superrationally.}
@@ -656,14 +651,12 @@ identify the right strategy for iterative versions of the game.
 \renewcommand{\arraystretch}{1.5}
 \begin{table}[h!]
     \centering
-    \begin{tabular}{p{1cm} p{5mm} p{1cm} p{1cm} }
-        & & \multicolumn{2}{c}{player 2} \\
-        \cmidrule[.2ex]{3-4}
-         & & C &  D\\
-         \cmidrule[.1ex]{2-4}
-        \multirow{2}{*}{player 1} & C & 4 , 2 & 3 , 3\\
-        & D & 3 , 0  & 2 , 1\\
-        \cmidrule[.2ex]{2-4}
+    \setlength{\extrarowheight}{2pt}
+    \begin{tabular}{cc|c|c|}
+      & \multicolumn{1}{c}{} & \multicolumn{2}{c}{player 2}\\
+      & \multicolumn{1}{c}{} & \multicolumn{1}{c}{C}  & \multicolumn{1}{c}{D} \\\cline{3-4}
+      \multirow{2}*{player 1}  & C & $4,\, 2$ & $3,\, 3$ \\\cline{3-4}
+      & D & $3,\, 0$ & $2,\, 1$ \\\cline{3-4}
     \end{tabular}
     \caption{The effective payoffs
 of a prisoner's dilemma, in which player 1 cooperates superrationally
@@ -944,7 +937,7 @@ theory.\footnote{Reasoning in accordance with some decision theory is
   accordance with the right decision theory, we would then have to find
   out what the decision-theoretical implications of different AI design
   choices are and ensure that these receive due consideration in the
-  construction of intelligent machines.} \footnote{There are other ways
+  construction of intelligent machines.}\textsuperscript{, }\footnote{There are other ways
   to make it more likely that the AI applies MSR. For example, one could
   ensure that its epistemology enables it to infer the existence of
   other universes that cannot be observed directly. We could also think
